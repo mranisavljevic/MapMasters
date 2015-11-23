@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		905E40C61C03AC8C0029365C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E40C51C03AC8C0029365C /* main.m */; };
 		905E40C91C03AC8C0029365C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E40C81C03AC8C0029365C /* AppDelegate.m */; };
-		905E40CC1C03AC8C0029365C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E40CB1C03AC8C0029365C /* ViewController.m */; };
 		905E40CF1C03AC8C0029365C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 905E40CD1C03AC8C0029365C /* Main.storyboard */; };
 		905E40D11C03AC8C0029365C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 905E40D01C03AC8C0029365C /* Assets.xcassets */; };
 		905E40D41C03AC8C0029365C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 905E40D21C03AC8C0029365C /* LaunchScreen.storyboard */; };
@@ -30,6 +29,7 @@
 		905E41141C03B0370029365C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905E41131C03B0370029365C /* SystemConfiguration.framework */; };
 		905E41161C03B0410029365C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 905E41151C03B0410029365C /* libz.tbd */; };
 		905E41181C03B04A0029365C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 905E41171C03B04A0029365C /* libsqlite3.tbd */; };
+		905E411B1C03B2E30029365C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E411A1C03B2E30029365C /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +54,6 @@
 		905E40C51C03AC8C0029365C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		905E40C71C03AC8C0029365C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		905E40C81C03AC8C0029365C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		905E40CA1C03AC8C0029365C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		905E40CB1C03AC8C0029365C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		905E40CE1C03AC8C0029365C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		905E40D01C03AC8C0029365C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		905E40D31C03AC8C0029365C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,6 +79,8 @@
 		905E41131C03B0370029365C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		905E41151C03B0410029365C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		905E41171C03B04A0029365C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		905E41191C03B2E30029365C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		905E411A1C03B2E30029365C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,8 +217,8 @@
 		905E40FF1C03AF950029365C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				905E40CA1C03AC8C0029365C /* ViewController.h */,
-				905E40CB1C03AC8C0029365C /* ViewController.m */,
+				905E41191C03B2E30029365C /* MapViewController.h */,
+				905E411A1C03B2E30029365C /* MapViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -367,7 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				905E40CC1C03AC8C0029365C /* ViewController.m in Sources */,
+				905E411B1C03B2E30029365C /* MapViewController.m in Sources */,
 				905E40C91C03AC8C0029365C /* AppDelegate.m in Sources */,
 				905E40C61C03AC8C0029365C /* main.m in Sources */,
 			);
