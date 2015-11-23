@@ -20,42 +20,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WCb-xU-nY0">
-                                <rect key="frame" x="60" y="28" width="480" height="480"/>
+                                <rect key="frame" x="90" y="28" width="420" height="420"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WCb-xU-nY0" secondAttribute="height" multiplier="1:1" id="ope-ng-jWI"/>
                                 </constraints>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="210-on-THr">
-                                <rect key="frame" x="277" y="550" width="46" height="30"/>
+                                <rect key="frame" x="192" y="512" width="216" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqh-9Q-8G5">
-                                <rect key="frame" x="223" y="550" width="46" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Mehmed Paša Sokolović Bridge"/>
+                                <connections>
+                                    <action selector="locationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nbX-yG-WdX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nf9-iQ-D5D">
-                                <rect key="frame" x="331" y="550" width="46" height="30"/>
+                                <rect key="frame" x="227" y="550" width="146" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Süleymaniye Mosque"/>
+                                <connections>
+                                    <action selector="locationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJf-d1-SP8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqh-9Q-8G5">
+                                <rect key="frame" x="242" y="474" width="116" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Selimiye Mosque"/>
+                                <connections>
+                                    <action selector="locationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tdk-Eu-TXg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="210-on-THr" secondAttribute="bottom" constant="20" id="AxQ-Ud-DaZ"/>
+                            <constraint firstItem="210-on-THr" firstAttribute="centerX" secondItem="Nf9-iQ-D5D" secondAttribute="centerX" id="0bm-Ny-pqa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nf9-iQ-D5D" secondAttribute="bottom" constant="20" id="2Vy-ck-MTn"/>
+                            <constraint firstItem="210-on-THr" firstAttribute="top" secondItem="kqh-9Q-8G5" secondAttribute="bottom" constant="8" id="DzZ-m5-JYC"/>
+                            <constraint firstItem="Nf9-iQ-D5D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EQi-D8-XSt"/>
                             <constraint firstItem="WCb-xU-nY0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="KrG-yN-30X"/>
-                            <constraint firstItem="210-on-THr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ve3-HC-dag"/>
-                            <constraint firstItem="210-on-THr" firstAttribute="leading" secondItem="kqh-9Q-8G5" secondAttribute="trailing" constant="8" id="fR3-uh-uGJ"/>
-                            <constraint firstItem="kqh-9Q-8G5" firstAttribute="baseline" secondItem="210-on-THr" secondAttribute="baseline" id="jOf-LY-Vtc"/>
+                            <constraint firstItem="Nf9-iQ-D5D" firstAttribute="top" secondItem="210-on-THr" secondAttribute="bottom" constant="8" id="h0q-24-sMS"/>
                             <constraint firstItem="WCb-xU-nY0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kW1-Nt-GhN"/>
-                            <constraint firstItem="Nf9-iQ-D5D" firstAttribute="baseline" secondItem="210-on-THr" secondAttribute="baseline" id="ksb-g5-haY"/>
-                            <constraint firstItem="WCb-xU-nY0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="yHr-xi-v7l"/>
-                            <constraint firstItem="Nf9-iQ-D5D" firstAttribute="leading" secondItem="210-on-THr" secondAttribute="trailing" constant="8" id="ygU-sD-MtX"/>
+                            <constraint firstItem="kqh-9Q-8G5" firstAttribute="centerX" secondItem="210-on-THr" secondAttribute="centerX" id="tIi-Wq-584"/>
+                            <constraint firstItem="WCb-xU-nY0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="yHr-xi-v7l"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="locationMapView" destination="WCb-xU-nY0" id="xCb-Ru-4YF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
