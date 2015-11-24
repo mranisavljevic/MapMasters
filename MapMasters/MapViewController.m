@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "LocationService.h"
+#import "LocationDetailViewController.h"
 #import "Stack.h"
 #import "Queue.h"
 @import MapKit;
@@ -49,6 +50,17 @@
 
 - (void)setRegion: (MKCoordinateRegion)region {
     [self.locationMapView setRegion:region animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"LocationDetailViewController"]) {
+        if ([segue.destinationViewController isKindOfClass:[LocationDetailViewController class]]) {
+            LocationDetailViewController *detailVC = (LocationDetailViewController *)segue.destinationViewController;
+            MKAnnotationView *annotation = (MKAnnotationView *)sender;
+            detailVC.annotationTitle = annotation.annotation.title;
+            detailVC.annotationSubtitle = annotation.annotation.subtitle;
+        }
+    }
 }
 
 - (void)testStack {
@@ -129,7 +141,7 @@
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    [self performSegueWithIdentifier:@"LocationDetailViewController" sender:self];
+    [self performSegueWithIdentifier:@"LocationDetailViewController" sender:view];
 }
 
 #pragma mark - LocationServiceDelegate

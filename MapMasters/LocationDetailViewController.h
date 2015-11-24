@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@import CoreLocation;
 
 @interface LocationDetailViewController : UIViewController
+
+@property (strong, nonatomic) NSString* annotationTitle;
+@property (strong, nonatomic) NSString* annotationSubtitle;
+@property CLLocationCoordinate2D coordinate;
 
 @end
