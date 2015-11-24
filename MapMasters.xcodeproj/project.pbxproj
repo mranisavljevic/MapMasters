@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		90102A001C04025100245956 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 901029FF1C04025100245956 /* Queue.m */; };
+		905C02371C0501780038981A /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C02361C0501780038981A /* LocationService.m */; };
+		905C023A1C05155B0038981A /* LocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C02391C05155B0038981A /* LocationDetailViewController.m */; };
 		905E40C61C03AC8C0029365C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E40C51C03AC8C0029365C /* main.m */; };
 		905E40C91C03AC8C0029365C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E40C81C03AC8C0029365C /* AppDelegate.m */; };
 		905E40CF1C03AC8C0029365C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 905E40CD1C03AC8C0029365C /* Main.storyboard */; };
@@ -54,6 +56,10 @@
 /* Begin PBXFileReference section */
 		901029FE1C04025100245956 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		901029FF1C04025100245956 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
+		905C02351C0501780038981A /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		905C02361C0501780038981A /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		905C02381C05155B0038981A /* LocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailViewController.h; sourceTree = "<group>"; };
+		905C02391C05155B0038981A /* LocationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailViewController.m; sourceTree = "<group>"; };
 		905E40C11C03AC8C0029365C /* MapMasters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapMasters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		905E40C51C03AC8C0029365C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		905E40C71C03AC8C0029365C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -129,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90102A051C04FABA00245956 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				905C02351C0501780038981A /* LocationService.h */,
+				905C02361C0501780038981A /* LocationService.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		905E40B81C03AC8C0029365C = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +171,7 @@
 			children = (
 				905E41001C03AF9C0029365C /* App */,
 				905E40FF1C03AF950029365C /* Controller */,
+				90102A051C04FABA00245956 /* Model */,
 				905E40FE1C03AF850029365C /* View */,
 				905E40C41C03AC8C0029365C /* Supporting Files */,
 			);
@@ -226,6 +242,8 @@
 			children = (
 				905E41191C03B2E30029365C /* MapViewController.h */,
 				905E411A1C03B2E30029365C /* MapViewController.m */,
+				905C02381C05155B0038981A /* LocationDetailViewController.h */,
+				905C02391C05155B0038981A /* LocationDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -388,8 +406,10 @@
 			files = (
 				90102A001C04025100245956 /* Queue.m in Sources */,
 				905E41211C03CC1A0029365C /* Stack.m in Sources */,
+				905C023A1C05155B0038981A /* LocationDetailViewController.m in Sources */,
 				905E411B1C03B2E30029365C /* MapViewController.m in Sources */,
 				905E40C91C03AC8C0029365C /* AppDelegate.m in Sources */,
+				905C02371C0501780038981A /* LocationService.m in Sources */,
 				905E40C61C03AC8C0029365C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
