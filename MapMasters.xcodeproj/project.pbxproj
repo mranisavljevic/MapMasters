@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90102A001C04025100245956 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 901029FF1C04025100245956 /* Queue.m */; };
 		905E40C61C03AC8C0029365C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E40C51C03AC8C0029365C /* main.m */; };
 		905E40C91C03AC8C0029365C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E40C81C03AC8C0029365C /* AppDelegate.m */; };
 		905E40CF1C03AC8C0029365C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 905E40CD1C03AC8C0029365C /* Main.storyboard */; };
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		901029FE1C04025100245956 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		901029FF1C04025100245956 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		905E40C11C03AC8C0029365C /* MapMasters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapMasters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		905E40C51C03AC8C0029365C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		905E40C71C03AC8C0029365C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 			children = (
 				905E411F1C03CC1A0029365C /* Stack.h */,
 				905E41201C03CC1A0029365C /* Stack.m */,
+				901029FE1C04025100245956 /* Queue.h */,
+				901029FF1C04025100245956 /* Queue.m */,
 			);
 			name = "Code Challenges";
 			path = MapMasters;
@@ -381,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90102A001C04025100245956 /* Queue.m in Sources */,
 				905E41211C03CC1A0029365C /* Stack.m in Sources */,
 				905E411B1C03B2E30029365C /* MapViewController.m in Sources */,
 				905E40C91C03AC8C0029365C /* AppDelegate.m in Sources */,
@@ -618,6 +624,7 @@
 				905E40F01C03AC8C0029365C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		905E40F11C03AC8C0029365C /* Build configuration list for PBXNativeTarget "MapMastersTests" */ = {
 			isa = XCConfigurationList;
@@ -626,6 +633,7 @@
 				905E40F31C03AC8C0029365C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		905E40F41C03AC8C0029365C /* Build configuration list for PBXNativeTarget "MapMastersUITests" */ = {
 			isa = XCConfigurationList;
@@ -634,6 +642,7 @@
 				905E40F61C03AC8C0029365C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

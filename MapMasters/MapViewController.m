@@ -8,10 +8,9 @@
 
 #import "MapViewController.h"
 #import "Stack.h"
+#import "Queue.h"
 @import MapKit;
 @import CoreLocation;
-
-@class Stack;
 
 @interface MapViewController ()
 
@@ -19,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
 - (IBAction)locationButtonPressed:(id)sender;
 @property Stack *stack;
+@property Queue *queue;
 
 @end
 
@@ -31,6 +31,7 @@
     self.locationMapView.mapType = MKMapTypeSatellite;
     self.locationMapView.layer.cornerRadius = 15.0;
     [self testStack];
+    [self testQueue];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,6 +56,20 @@
     [self.stack addObject:@"Two"];
     NSLog(@"%lu", (unsigned long)copy.count);
     [self.stack removeObject];
+    NSLog(@"%lu", (unsigned long)copy.count);
+}
+
+- (void)testQueue {
+    self.queue = [[Queue alloc] initWithQueue:[@[@(0)] mutableCopy]];
+    NSArray *copy = self.queue.queue;
+    NSLog(@"%lu", (unsigned long)copy.count);
+    [self.queue enqueue:@(1)];
+    NSLog(@"%lu", (unsigned long)copy.count);
+    [self.queue enqueue:@(23)];
+    NSLog(@"%lu", (unsigned long)copy.count);
+    [self.queue enqueue:@(88)];
+    NSLog(@"%lu", (unsigned long)copy.count);
+    [self.queue dequeue];
     NSLog(@"%lu", (unsigned long)copy.count);
 }
 
