@@ -7,14 +7,18 @@
 //
 
 #import "MapViewController.h"
+#import "Stack.h"
 @import MapKit;
 @import CoreLocation;
+
+@class Stack;
 
 @interface MapViewController ()
 
 @property CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
 - (IBAction)locationButtonPressed:(id)sender;
+@property Stack *stack;
 
 @end
 
@@ -26,6 +30,7 @@
     [self.locationMapView setShowsUserLocation:YES];
     self.locationMapView.mapType = MKMapTypeSatellite;
     self.locationMapView.layer.cornerRadius = 15.0;
+    [self testStack];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +44,18 @@
 
 - (void)setRegion: (MKCoordinateRegion)region {
     [self.locationMapView setRegion:region animated:YES];
+}
+
+- (void)testStack {
+    self.stack = [[Stack alloc] initWithStack:[@[@""] mutableCopy]];
+    NSArray *copy = self.stack.stack;
+    NSLog(@"%lu", (unsigned long)copy.count);
+    [self.stack addObject:@"One"];
+    NSLog(@"%lu", (unsigned long)copy.count);
+    [self.stack addObject:@"Two"];
+    NSLog(@"%lu", (unsigned long)copy.count);
+    [self.stack removeObject];
+    NSLog(@"%lu", (unsigned long)copy.count);
 }
 
 - (IBAction)locationButtonPressed:(id)sender {
