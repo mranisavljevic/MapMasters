@@ -24,7 +24,9 @@
 }
 
 - (void)dequeue {
-    [self.queue removeObjectAtIndex:0];
+    if (self.queue.count > 0) {
+        [self.queue removeObjectAtIndex:0];
+    }
 }
 
 @end

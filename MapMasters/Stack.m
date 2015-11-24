@@ -25,7 +25,9 @@
 }
 
 - (void)removeObject {
-    [self.stack removeObjectAtIndex:0];
+    if (self.stack.count > 0) {
+        [self.stack removeObjectAtIndex:0];
+    }
 }
 
 @end
