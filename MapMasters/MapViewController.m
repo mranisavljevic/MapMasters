@@ -11,6 +11,7 @@
 #import "LocationDetailViewController.h"
 #import "Stack.h"
 #import "Queue.h"
+#import "Anagram.h"
 @import MapKit;
 @import CoreLocation;
 
@@ -21,6 +22,7 @@
 - (IBAction)longPressGestureRecognized:(id)sender;
 @property Stack *stack;
 @property Queue *queue;
+@property Anagram *anagram;
 
 @end
 
@@ -33,6 +35,7 @@
     self.locationMapView.layer.cornerRadius = 15.0;
 //    [self testStack];
 //    [self testQueue];
+//    [self testAnagram];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,6 +90,14 @@
     NSLog(@"%lu", (unsigned long)copy.count);
     [self.queue dequeue];
     NSLog(@"%lu", (unsigned long)copy.count);
+}
+
+- (void)testAnagram {
+    self.anagram = [[Anagram alloc] init];
+    BOOL answer = [self.anagram checkForAnagramWithString:@"debit card" checkAgainst:@"bad credit"];
+    NSLog(answer ? @"YES" : @"NO");
+    BOOL answerTwo = [self.anagram checkForAnagramWithString:@"not close" checkAgainst:@"at all"];
+    NSLog(answerTwo ? @"YES" : @"NO");
 }
 
 - (IBAction)locationButtonPressed:(id)sender {
