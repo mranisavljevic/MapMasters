@@ -10,4 +10,6 @@
 
 @interface Anagram : NSObject
 
+- (BOOL)checkForAnagramWithString: (NSString *)stringOne checkAgainst:(NSString *)stringTwo;
+
 @end
