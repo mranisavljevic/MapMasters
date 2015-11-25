@@ -17,6 +17,9 @@
 
 @interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *selimiyeLocationButton;
+@property (weak, nonatomic) IBOutlet UIButton *mehmedPasaLocationButton;
+@property (weak, nonatomic) IBOutlet UIButton *suleymaniyeLocationButton;
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
 - (IBAction)locationButtonPressed:(id)sender;
 - (IBAction)longPressGestureRecognized:(id)sender;
@@ -30,9 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.locationMapView setShowsUserLocation:YES];
-    self.locationMapView.mapType = MKMapTypeSatellite;
-    self.locationMapView.layer.cornerRadius = 15.0;
+    [self setUpView];
 //    [self testStack];
 //    [self testQueue];
 //    [self testAnagram];
@@ -49,6 +50,28 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [[[LocationService sharedService] locationManager] stopUpdatingLocation];
+}
+
+- (void)setUpView {
+    UIColor *salmonColor = [UIColor colorWithRed:1.000 green:0.733 blue:0.553 alpha:1.000];
+    UIColor *darkBrownColor = [UIColor colorWithRed:0.435 green:0.275 blue:0.200 alpha:1.000];
+    [self.locationMapView setShowsUserLocation:YES];
+    self.locationMapView.mapType = MKMapTypeSatellite;
+    self.locationMapView.layer.cornerRadius = 15.0;
+    self.locationMapView.layer.borderColor = [darkBrownColor CGColor];
+    self.locationMapView.layer.borderWidth = 1.0;
+    self.selimiyeLocationButton.backgroundColor = salmonColor;
+    self.mehmedPasaLocationButton.backgroundColor = salmonColor;
+    self.suleymaniyeLocationButton.backgroundColor = salmonColor;
+    self.selimiyeLocationButton.layer.cornerRadius = 5.0;
+    self.mehmedPasaLocationButton.layer.cornerRadius = 5.0;
+    self.suleymaniyeLocationButton.layer.cornerRadius = 5.0;
+    self.selimiyeLocationButton.layer.borderColor = [darkBrownColor CGColor];
+    self.mehmedPasaLocationButton.layer.borderColor = [darkBrownColor CGColor];
+    self.suleymaniyeLocationButton.layer.borderColor = [darkBrownColor CGColor];
+    self.selimiyeLocationButton.layer.borderWidth = 1.0;
+    self.mehmedPasaLocationButton.layer.borderWidth = 1.0;
+    self.suleymaniyeLocationButton.layer.borderWidth = 1.0;
 }
 
 - (void)setRegion: (MKCoordinateRegion)region {

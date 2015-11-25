@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WCb-xU-nY0">
-                                <rect key="frame" x="90" y="72" width="420" height="420"/>
+                                <rect key="frame" x="60" y="72" width="480" height="480"/>
                                 <animations/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -32,32 +32,41 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="210-on-THr">
-                                <rect key="frame" x="192" y="512" width="216" height="30"/>
+                                <rect key="frame" x="186" y="512" width="228" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Mehmed Paša Sokolović Bridge"/>
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                <state key="normal" title="Mehmed Paša Sokolović Bridge">
+                                    <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="locationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nbX-yG-WdX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nf9-iQ-D5D">
-                                <rect key="frame" x="227" y="550" width="146" height="30"/>
+                                <rect key="frame" x="221" y="550" width="158" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Süleymaniye Mosque"/>
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                <state key="normal" title="Süleymaniye Mosque">
+                                    <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="locationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJf-d1-SP8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqh-9Q-8G5">
-                                <rect key="frame" x="242" y="474" width="116" height="30"/>
+                                <rect key="frame" x="236" y="474" width="128" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Selimiye Mosque"/>
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                <state key="normal" title="Selimiye Mosque">
+                                    <color key="titleColor" red="0.45490196078431372" green="0.39215686274509803" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="locationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tdk-Eu-TXg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.8666666666666667" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="210-on-THr" firstAttribute="centerX" secondItem="Nf9-iQ-D5D" secondAttribute="centerX" id="0bm-Ny-pqa"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nf9-iQ-D5D" secondAttribute="bottom" constant="20" id="2Vy-ck-MTn"/>
@@ -67,12 +76,15 @@
                             <constraint firstItem="Nf9-iQ-D5D" firstAttribute="top" secondItem="210-on-THr" secondAttribute="bottom" constant="8" id="h0q-24-sMS"/>
                             <constraint firstItem="WCb-xU-nY0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kW1-Nt-GhN"/>
                             <constraint firstItem="kqh-9Q-8G5" firstAttribute="centerX" secondItem="210-on-THr" secondAttribute="centerX" id="tIi-Wq-584"/>
-                            <constraint firstItem="WCb-xU-nY0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="yHr-xi-v7l"/>
+                            <constraint firstItem="WCb-xU-nY0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="yHr-xi-v7l"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B5w-3y-0hd"/>
                     <connections>
                         <outlet property="locationMapView" destination="WCb-xU-nY0" id="xCb-Ru-4YF"/>
+                        <outlet property="mehmedPasaLocationButton" destination="210-on-THr" id="J6r-a8-6aX"/>
+                        <outlet property="selimiyeLocationButton" destination="kqh-9Q-8G5" id="chw-3k-h9F"/>
+                        <outlet property="suleymaniyeLocationButton" destination="Nf9-iQ-D5D" id="f8t-ws-UtX"/>
                         <segue destination="7Je-Sr-lIc" kind="show" identifier="LocationDetailViewController" id="N6S-Jw-OkY"/>
                     </connections>
                 </viewController>
