@@ -11,8 +11,8 @@
 
 @interface LocationService () <CLLocationManagerDelegate>
 
-- (void)startUpdatingLocation;
-- (void)stopUpdatingLocation;
+//- (void)startUpdatingLocation;
+//- (void)stopUpdatingLocation;
 
 @end
 
@@ -49,6 +49,12 @@
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         [self.mapView setShowsUserLocation:YES];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    if (region) {
+        //Local notification here
     }
 }
 

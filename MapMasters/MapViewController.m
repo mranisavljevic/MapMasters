@@ -19,14 +19,9 @@
 
 @interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *selimiyeLocationButton;
-@property (weak, nonatomic) IBOutlet UIButton *mehmedPasaLocationButton;
-@property (weak, nonatomic) IBOutlet UIButton *suleymaniyeLocationButton;
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
-- (IBAction)locationButtonPressed:(id)sender;
+@property (strong, nonatomic) NSArray *reminders;
 - (IBAction)longPressGestureRecognized:(id)sender;
-//@property PFLogInViewController *loginVC;
-//@property PFSignUpViewController *signUpVC;
 @property Stack *stack;
 @property Queue *queue;
 @property Anagram *anagram;
@@ -39,6 +34,7 @@
     [super viewDidLoad];
     [self setUpView];
     [self logIn];
+    [self loadRemindersFromParse];
 //    [self testStack];
 //    [self testQueue];
 //    [self testAnagram];
@@ -60,24 +56,23 @@
 
 - (void)setUpView {
     
-    UIColor *salmonColor = [UIColor colorWithRed:1.000 green:0.733 blue:0.553 alpha:1.000];
     UIColor *darkBrownColor = [UIColor colorWithRed:0.435 green:0.275 blue:0.200 alpha:1.000];
     self.locationMapView.mapType = MKMapTypeSatellite;
     self.locationMapView.layer.cornerRadius = 15.0;
     self.locationMapView.layer.borderColor = [darkBrownColor CGColor];
     self.locationMapView.layer.borderWidth = 1.0;
-    self.selimiyeLocationButton.backgroundColor = salmonColor;
-    self.mehmedPasaLocationButton.backgroundColor = salmonColor;
-    self.suleymaniyeLocationButton.backgroundColor = salmonColor;
-    self.selimiyeLocationButton.layer.cornerRadius = 5.0;
-    self.mehmedPasaLocationButton.layer.cornerRadius = 5.0;
-    self.suleymaniyeLocationButton.layer.cornerRadius = 5.0;
-    self.selimiyeLocationButton.layer.borderColor = [darkBrownColor CGColor];
-    self.mehmedPasaLocationButton.layer.borderColor = [darkBrownColor CGColor];
-    self.suleymaniyeLocationButton.layer.borderColor = [darkBrownColor CGColor];
-    self.selimiyeLocationButton.layer.borderWidth = 1.0;
-    self.mehmedPasaLocationButton.layer.borderWidth = 1.0;
-    self.suleymaniyeLocationButton.layer.borderWidth = 1.0;
+}
+
+- (void)loadRemindersFromParse {
+    PFQuery *query = [[PFQuery alloc] initWithClassName:@"Reminder"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"%@", error.userInfo);
+        }
+        if (objects) {
+            self.reminders = [[NSArray alloc] initWithArray:objects];
+        }
+    }];
 }
 
 - (void)setRegion: (MKCoordinateRegion)region {
@@ -120,8 +115,15 @@
 }
 
 - (void)addAdditionalUI {
-    UIBarButtonItem *signOutButton = [[UIBarButtonItem alloc] initWithTitle:@"LogOut" style:UIBarButtonItemStylePlain target:self action:@selector(logOut)];
+    UIBarButtonItem *signOutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out" style:UIBarButtonItemStylePlain target:self action:@selector(logOut)];
     self.navigationItem.leftBarButtonItem = signOutButton;
+}
+
+- (void)presentLocalNotification {
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertTitle = @"Alert!";
+    notification.alertBody = @"You've been alerted.";
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
 - (void)testStack {
@@ -158,28 +160,6 @@
     NSLog(answerTwo ? @"YES" : @"NO");
 }
 
-- (IBAction)locationButtonPressed:(id)sender {
-    if ([sender isKindOfClass:[UIButton class]]) {
-        UIButton *button = sender;
-        NSString *buttonTitle = button.titleLabel.text;
-        if ([buttonTitle isEqualToString:@"Selimiye Mosque"]) {
-            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(41.678326, 26.559207);
-            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 600.0, 600.0);
-            [self setRegion:region];
-        }
-        if ([buttonTitle isEqualToString:@"Mehmed Paša Sokolović Bridge"]) {
-            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(43.782611, 19.287983);
-            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 600.0, 600.0);
-            [self setRegion:region];
-        }
-        if ([buttonTitle isEqualToString:@"Süleymaniye Mosque"]) {
-            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(41.016090, 28.964054);
-            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 600.0, 600.0);
-            [self setRegion:region];
-        }
-    }
-}
-
 - (IBAction)longPressGestureRecognized:(UIGestureRecognizer*)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         CGPoint point = [sender locationInView:self.locationMapView];
@@ -214,8 +194,8 @@
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     MKCircleRenderer *circle = [[MKCircleRenderer alloc] initWithCircle:overlay];
-    UIColor *orangeOverlayColor = [UIColor colorWithRed:1.000 green:0.490 blue:0.020 alpha:0.500];
-    UIColor *greyOverlayBorderColor = [UIColor colorWithRed:0.549 green:0.510 blue:0.475 alpha:0.500];
+    UIColor *orangeOverlayColor = [UIColor colorWithRed:1.000 green:0.490 blue:0.020 alpha:0.650];
+    UIColor *greyOverlayBorderColor = [UIColor colorWithRed:0.549 green:0.510 blue:0.475 alpha:0.650];
     circle.strokeColor = greyOverlayBorderColor;
     circle.fillColor = orangeOverlayColor;
     return circle;

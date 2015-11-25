@@ -49,6 +49,8 @@
             if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
                 CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.coordinate radius:self.radiusTextField.text.floatValue identifier:self.titleTextField.text];
                 [[[LocationService sharedService] locationManager] startMonitoringForRegion:region];
+                self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:self.radiusTextField.text.doubleValue]);
+                [self.navigationController popToRootViewControllerAnimated:YES];
             }
         }
     }];
