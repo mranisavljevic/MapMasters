@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -108,9 +109,51 @@
                     <view key="view" contentMode="scaleToFill" id="9St-3c-9YB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AdJ-Uu-vQv">
+                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <animations/>
+                                <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Radius" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5N-5p-xO5">
+                                <rect key="frame" x="20" y="110" width="560" height="30"/>
+                                <animations/>
+                                <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BL-LY-Dvz">
+                                <rect key="frame" x="243" y="148" width="115" height="30"/>
+                                <animations/>
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                <state key="normal" title="Save Reminder">
+                                    <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveReminderButtonPressed:" destination="7Je-Sr-lIc" eventType="touchUpInside" id="ChK-AG-gVT"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.86666666670000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="e5N-5p-xO5" firstAttribute="top" secondItem="AdJ-Uu-vQv" secondAttribute="bottom" constant="8" id="2TP-eD-X6y"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="AdJ-Uu-vQv" secondAttribute="leading" id="5as-wg-O1M"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="e5N-5p-xO5" secondAttribute="leading" id="6kP-un-GYt"/>
+                            <constraint firstItem="AdJ-Uu-vQv" firstAttribute="top" secondItem="Gvm-a6-raa" secondAttribute="bottom" constant="8" id="G1b-6d-VET"/>
+                            <constraint firstItem="1BL-LY-Dvz" firstAttribute="top" secondItem="e5N-5p-xO5" secondAttribute="bottom" constant="8" id="RDy-i9-xey"/>
+                            <constraint firstItem="1BL-LY-Dvz" firstAttribute="centerX" secondItem="e5N-5p-xO5" secondAttribute="centerX" id="rDM-vp-8Fq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e5N-5p-xO5" secondAttribute="trailing" id="vZx-I9-Yj1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AdJ-Uu-vQv" secondAttribute="trailing" id="yZW-vY-1mN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="radiusTextField" destination="e5N-5p-xO5" id="SVa-xg-3v3"/>
+                        <outlet property="saveReminderButton" destination="1BL-LY-Dvz" id="MUd-zN-yGq"/>
+                        <outlet property="titleTextField" destination="AdJ-Uu-vQv" id="AoZ-r1-HL3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LeR-PX-5ah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

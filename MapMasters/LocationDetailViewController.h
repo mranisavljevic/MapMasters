@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reminder.h"
+#import "LocationService.h"
 @import CoreLocation;
+@import MapKit;
+@import Parse;
+
+typedef void(^LocationDetailViewControllerCompletion)(MKCircle *circle);
 
 @interface LocationDetailViewController : UIViewController
 
-@property (strong, nonatomic) NSString* annotationTitle;
-@property (strong, nonatomic) NSString* annotationSubtitle;
+@property (copy, nonatomic) NSString* annotationTitle;
 @property CLLocationCoordinate2D coordinate;
+@property (copy, nonatomic) LocationDetailViewControllerCompletion completion;
 
 @end

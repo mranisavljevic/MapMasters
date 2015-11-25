@@ -39,19 +39,17 @@
     return self;
 }
 
-- (void)startUpdatingLocation {
-    [self startUpdatingLocation];
-}
-
-- (void)stopUpdatingLocation {
-    [self stopUpdatingLocation];
-}
-
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     [self.delegate locationServiceDidUpdateLocation:locations.lastObject];
     [self setLocation:locations.lastObject];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self.mapView setShowsUserLocation:YES];
+    }
 }
 
 @end

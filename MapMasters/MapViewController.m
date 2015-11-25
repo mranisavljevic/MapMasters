@@ -50,6 +50,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [[LocationService sharedService] setDelegate:self];
+    [[LocationService sharedService]setMapView:self.locationMapView];
     [[[LocationService sharedService] locationManager] startUpdatingLocation];
 }
 
@@ -58,9 +59,9 @@
 }
 
 - (void)setUpView {
+    
     UIColor *salmonColor = [UIColor colorWithRed:1.000 green:0.733 blue:0.553 alpha:1.000];
     UIColor *darkBrownColor = [UIColor colorWithRed:0.435 green:0.275 blue:0.200 alpha:1.000];
-    [self.locationMapView setShowsUserLocation:YES];
     self.locationMapView.mapType = MKMapTypeSatellite;
     self.locationMapView.layer.cornerRadius = 15.0;
     self.locationMapView.layer.borderColor = [darkBrownColor CGColor];
@@ -87,10 +88,15 @@
     if ([segue.identifier isEqualToString:@"LocationDetailViewController"]) {
         if ([segue.destinationViewController isKindOfClass:[LocationDetailViewController class]]) {
             LocationDetailViewController *detailVC = (LocationDetailViewController *)segue.destinationViewController;
-            MKAnnotationView *annotation = (MKAnnotationView *)sender;
-            detailVC.coordinate = annotation.annotation.coordinate;
-            detailVC.annotationTitle = annotation.annotation.title;
-            detailVC.annotationSubtitle = annotation.annotation.subtitle;
+            MKAnnotationView *annotationView = (MKAnnotationView *)sender;
+            detailVC.coordinate = annotationView.annotation.coordinate;
+            detailVC.annotationTitle = annotationView.annotation.title;
+            __weak typeof(self) weakSelf = self;
+            detailVC.completion = ^(MKCircle *circle) {
+                __strong typeof(self) strongSelf = weakSelf;
+                [strongSelf.locationMapView removeAnnotation:annotationView.annotation];
+                [strongSelf.locationMapView addOverlay:circle];
+            };
         }
     }
 }
@@ -181,7 +187,6 @@
         MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
         annotation.coordinate = coordinate;
         annotation.title = @"New Location";
-        annotation.subtitle = @"What are we doing here?";
         [self.locationMapView addAnnotation:annotation];
     }
 }
@@ -205,6 +210,15 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     [self performSegueWithIdentifier:@"LocationDetailViewController" sender:view];
+}
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKCircleRenderer *circle = [[MKCircleRenderer alloc] initWithCircle:overlay];
+    UIColor *orangeOverlayColor = [UIColor colorWithRed:1.000 green:0.490 blue:0.020 alpha:0.500];
+    UIColor *greyOverlayBorderColor = [UIColor colorWithRed:0.549 green:0.510 blue:0.475 alpha:0.500];
+    circle.strokeColor = greyOverlayBorderColor;
+    circle.fillColor = orangeOverlayColor;
+    return circle;
 }
 
 #pragma mark - LocationServiceDelegate

@@ -39,6 +39,7 @@
 		90FC62E31C0657D200FC0C87 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62DF1C0657D200FC0C87 /* ParseFacebookUtilsV4.framework */; };
 		90FC62E41C0657D200FC0C87 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62E01C0657D200FC0C87 /* ParseTwitterUtils.framework */; };
 		90FC62E51C0657D200FC0C87 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62E11C0657D200FC0C87 /* ParseUI.framework */; };
+		90FC62E81C066FD000FC0C87 /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FC62E71C066FD000FC0C87 /* Reminder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,8 @@
 		90FC62DF1C0657D200FC0C87 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		90FC62E01C0657D200FC0C87 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		90FC62E11C0657D200FC0C87 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		90FC62E61C066FD000FC0C87 /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
+		90FC62E71C066FD000FC0C87 /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 			children = (
 				905C02351C0501780038981A /* LocationService.h */,
 				905C02361C0501780038981A /* LocationService.m */,
+				90FC62E61C066FD000FC0C87 /* Reminder.h */,
+				90FC62E71C066FD000FC0C87 /* Reminder.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 				905E41211C03CC1A0029365C /* Stack.m in Sources */,
 				905C023A1C05155B0038981A /* LocationDetailViewController.m in Sources */,
 				905C023D1C051A730038981A /* Anagram.m in Sources */,
+				90FC62E81C066FD000FC0C87 /* Reminder.m in Sources */,
 				905E411B1C03B2E30029365C /* MapViewController.m in Sources */,
 				905E40C91C03AC8C0029365C /* AppDelegate.m in Sources */,
 				905C02371C0501780038981A /* LocationService.m in Sources */,
