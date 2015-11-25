@@ -35,6 +35,10 @@
 		905E41181C03B04A0029365C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 905E41171C03B04A0029365C /* libsqlite3.tbd */; };
 		905E411B1C03B2E30029365C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E411A1C03B2E30029365C /* MapViewController.m */; };
 		905E41211C03CC1A0029365C /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E41201C03CC1A0029365C /* Stack.m */; };
+		90FC62E21C0657D200FC0C87 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62DE1C0657D200FC0C87 /* ParseFacebookUtils.framework */; };
+		90FC62E31C0657D200FC0C87 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62DF1C0657D200FC0C87 /* ParseFacebookUtilsV4.framework */; };
+		90FC62E41C0657D200FC0C87 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62E01C0657D200FC0C87 /* ParseTwitterUtils.framework */; };
+		90FC62E51C0657D200FC0C87 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62E11C0657D200FC0C87 /* ParseUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +100,10 @@
 		905E411A1C03B2E30029365C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		905E411F1C03CC1A0029365C /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		905E41201C03CC1A0029365C /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		90FC62DE1C0657D200FC0C87 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		90FC62DF1C0657D200FC0C87 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		90FC62E01C0657D200FC0C87 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
+		90FC62E11C0657D200FC0C87 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,16 +115,20 @@
 				905E41161C03B0410029365C /* libz.tbd in Frameworks */,
 				905E41141C03B0370029365C /* SystemConfiguration.framework in Frameworks */,
 				905E41121C03B02D0029365C /* StoreKit.framework in Frameworks */,
+				90FC62E41C0657D200FC0C87 /* ParseTwitterUtils.framework in Frameworks */,
 				905E41101C03B0250029365C /* Social.framework in Frameworks */,
 				905E410E1C03B0160029365C /* Security.framework in Frameworks */,
 				905E410C1C03B00D0029365C /* QuartzCore.framework in Frameworks */,
 				905E410A1C03B0050029365C /* CoreLocation.framework in Frameworks */,
 				905E41081C03AFFE0029365C /* CoreGraphics.framework in Frameworks */,
+				90FC62E51C0657D200FC0C87 /* ParseUI.framework in Frameworks */,
 				905E41061C03AFF40029365C /* CFNetwork.framework in Frameworks */,
 				905E41041C03AFEB0029365C /* AudioToolbox.framework in Frameworks */,
 				905E41021C03AFE10029365C /* Accounts.framework in Frameworks */,
 				905E40F81C03AC950029365C /* MapKit.framework in Frameworks */,
 				905E40FC1C03AF670029365C /* Parse.framework in Frameworks */,
+				90FC62E31C0657D200FC0C87 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				90FC62E21C0657D200FC0C87 /* ParseFacebookUtils.framework in Frameworks */,
 				905E40FA1C03AF590029365C /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +225,10 @@
 			children = (
 				905E41171C03B04A0029365C /* libsqlite3.tbd */,
 				905E41151C03B0410029365C /* libz.tbd */,
+				90FC62DE1C0657D200FC0C87 /* ParseFacebookUtils.framework */,
+				90FC62DF1C0657D200FC0C87 /* ParseFacebookUtilsV4.framework */,
+				90FC62E01C0657D200FC0C87 /* ParseTwitterUtils.framework */,
+				90FC62E11C0657D200FC0C87 /* ParseUI.framework */,
 				905E41131C03B0370029365C /* SystemConfiguration.framework */,
 				905E41111C03B02D0029365C /* StoreKit.framework */,
 				905E410F1C03B0250029365C /* Social.framework */,

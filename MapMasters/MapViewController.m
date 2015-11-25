@@ -14,8 +14,10 @@
 #import "Anagram.h"
 @import MapKit;
 @import CoreLocation;
+@import Parse;
+@import ParseUI;
 
-@interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate>
+@interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *selimiyeLocationButton;
 @property (weak, nonatomic) IBOutlet UIButton *mehmedPasaLocationButton;
@@ -23,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
 - (IBAction)locationButtonPressed:(id)sender;
 - (IBAction)longPressGestureRecognized:(id)sender;
+//@property PFLogInViewController *loginVC;
+//@property PFSignUpViewController *signUpVC;
 @property Stack *stack;
 @property Queue *queue;
 @property Anagram *anagram;
@@ -34,6 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpView];
+    [self logIn];
 //    [self testStack];
 //    [self testQueue];
 //    [self testAnagram];
@@ -83,10 +88,34 @@
         if ([segue.destinationViewController isKindOfClass:[LocationDetailViewController class]]) {
             LocationDetailViewController *detailVC = (LocationDetailViewController *)segue.destinationViewController;
             MKAnnotationView *annotation = (MKAnnotationView *)sender;
+            detailVC.coordinate = annotation.annotation.coordinate;
             detailVC.annotationTitle = annotation.annotation.title;
             detailVC.annotationSubtitle = annotation.annotation.subtitle;
         }
     }
+}
+
+- (void)logIn {
+    if (![PFUser currentUser]) {
+        PFLogInViewController *logInVC = [[PFLogInViewController alloc] init];
+        logInVC.delegate = self;
+        PFSignUpViewController *signUpVC = [[PFSignUpViewController alloc] init];
+        signUpVC.delegate = self;
+        logInVC.signUpController = signUpVC;
+        [self presentViewController:logInVC animated:YES completion:nil];
+    } else {
+        [self addAdditionalUI];
+    }
+}
+
+- (void)logOut {
+    [PFUser logOut];
+    [self logIn];
+}
+
+- (void)addAdditionalUI {
+    UIBarButtonItem *signOutButton = [[UIBarButtonItem alloc] initWithTitle:@"LogOut" style:UIBarButtonItemStylePlain target:self action:@selector(logOut)];
+    self.navigationItem.leftBarButtonItem = signOutButton;
 }
 
 - (void)testStack {
@@ -183,6 +212,20 @@
 - (void)locationServiceDidUpdateLocation:(CLLocation *)location {
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
     [self setRegion:region];
+}
+
+#pragma mark - PFUserLogInViewControllerDelegate
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self addAdditionalUI];
+}
+
+#pragma mark - PFUserSignUpViewControllerDelegate
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self addAdditionalUI];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
