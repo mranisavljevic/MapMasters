@@ -44,6 +44,7 @@
     reminder.name = self.titleTextField.text;
     reminder.radius = self.radiusTextField.text.floatValue;
     reminder.location = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
+    reminder.userId = [[PFUser currentUser] objectId];
     [reminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (self.completion) {
             if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {

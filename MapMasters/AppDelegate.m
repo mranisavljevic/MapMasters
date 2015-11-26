@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse/Parse.h>
-#import "MapViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +20,26 @@
                   clientKey:@"F1vcVsUwJbw1qhdIZQvxOGnWtM0UVFSfzeUyk2LN"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [self setUpLocalNotifications];
+    if (![PFUser currentUser]) {
+        [self presentLoginSignupViewController];
+    }
     return YES;
+}
+
+- (void)presentLoginSignupViewController {
+    UINavigationController *navController = (UINavigationController *)[[self window] rootViewController];
+    UIStoryboard *storyboard = [navController storyboard];
+    MapViewController *homeVC = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+    LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [homeVC addChildViewController:loginVC];
+    [homeVC.view addSubview:loginVC.view];
+    [loginVC didMoveToParentViewController:homeVC];
+    __weak typeof(LoginViewController) *weakLoginVC = loginVC;
+    loginVC.completion = ^ {
+        __strong typeof(LoginViewController) *strongLoginVC = weakLoginVC;
+        [strongLoginVC.view removeFromSuperview];
+        [strongLoginVC removeFromParentViewController];
+    };
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

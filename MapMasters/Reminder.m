@@ -13,6 +13,7 @@
 @dynamic name;
 @dynamic location;
 @dynamic radius;
+@dynamic userId;
 
 + (void)load {
     [self registerSubclass];

@@ -17,7 +17,7 @@
 @import Parse;
 @import ParseUI;
 
-@interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate/*, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate*/>
 
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
 @property (strong, nonatomic) NSArray *reminders;
@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpView];
-    [self logIn];
+//    [self logIn];
     [self loadRemindersFromParse];
 //    [self testStack];
 //    [self testQueue];
@@ -45,6 +45,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"MapVC appearing...");
     [[LocationService sharedService] setDelegate:self];
     [[LocationService sharedService]setMapView:self.locationMapView];
     [[[LocationService sharedService] locationManager] startUpdatingLocation];
@@ -65,6 +66,7 @@
 
 - (void)loadRemindersFromParse {
     PFQuery *query = [[PFQuery alloc] initWithClassName:@"Reminder"];
+//    [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error.userInfo);
@@ -107,22 +109,22 @@
     }
 }
 
-- (void)logIn {
-    if (![PFUser currentUser]) {
-        PFLogInViewController *logInVC = [[PFLogInViewController alloc] init];
-        logInVC.delegate = self;
-        PFSignUpViewController *signUpVC = [[PFSignUpViewController alloc] init];
-        signUpVC.delegate = self;
-        logInVC.signUpController = signUpVC;
-        [self presentViewController:logInVC animated:YES completion:nil];
-    } else {
-        [self addAdditionalUI];
-    }
-}
+//- (void)logIn {
+//    if (![PFUser currentUser]) {
+//        PFLogInViewController *logInVC = [[PFLogInViewController alloc] init];
+//        logInVC.delegate = self;
+//        PFSignUpViewController *signUpVC = [[PFSignUpViewController alloc] init];
+//        signUpVC.delegate = self;
+//        logInVC.signUpController = signUpVC;
+//        [self presentViewController:logInVC animated:YES completion:nil];
+//    } else {
+//        [self addAdditionalUI];
+//    }
+//}
 
 - (void)logOut {
     [PFUser logOut];
-    [self logIn];
+//    [self logIn];
 }
 
 - (void)addAdditionalUI {
@@ -219,19 +221,19 @@
     [self setRegion:region];
 }
 
-#pragma mark - PFUserLogInViewControllerDelegate
-
-- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self addAdditionalUI];
-}
-
-#pragma mark - PFUserSignUpViewControllerDelegate
-
-- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [self addAdditionalUI];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//#pragma mark - PFUserLogInViewControllerDelegate
+//
+//- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self addAdditionalUI];
+//}
+//
+//#pragma mark - PFUserSignUpViewControllerDelegate
+//
+//- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+//    [self addAdditionalUI];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 @end
 

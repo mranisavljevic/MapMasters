@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapViewController.h"
+#import "LoginViewController.h"
+@import Parse;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
