@@ -20,6 +20,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map Masters" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgh-PD-8Ko">
+                                <rect key="frame" x="20" y="87" width="560" height="72"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heB-Ui-YuR">
                                 <rect key="frame" x="20" y="167" width="560" height="30"/>
                                 <animations/>
@@ -45,37 +52,65 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6Z-ib-fNr">
-                                <rect key="frame" x="266.5" y="544" width="67" height="36"/>
+                                <rect key="frame" x="104" y="544" width="392" height="36"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="ut3-El-hRe"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ut3-El-hRe"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="H6H-ny-VxA" eventType="touchUpInside" id="wXm-LQ-9V3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNY-KP-ee1">
-                                <rect key="frame" x="259" y="281" width="83" height="36"/>
+                                <rect key="frame" x="104" y="281" width="392" height="36"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="Qcp-io-77M"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Qcp-io-77M"/>
+                                    </mask>
+                                </variation>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="H6H-ny-VxA" eventType="touchUpInside" id="GoX-Fc-64J"/>
                                     <action selector="signupButtonPressed:" destination="H6H-ny-VxA" eventType="touchUpInside" id="Fbr-au-3el"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map Masters" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgh-PD-8Ko">
-                                <rect key="frame" x="20" y="87" width="560" height="72"/>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njx-wD-6hy">
+                                <rect key="frame" x="104" y="325" width="392" height="36"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="Lf9-1Y-gU6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="0.47843137254901957" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Lf9-1Y-gU6"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="H6H-ny-VxA" eventType="touchUpInside" id="Ydf-Jk-fF1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.86666666670000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -84,6 +119,7 @@
                             <constraint firstItem="yAl-DA-cej" firstAttribute="top" secondItem="nF9-Pk-b6X" secondAttribute="bottom" constant="8" id="9hb-FC-fY6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yAl-DA-cej" secondAttribute="trailing" id="BUB-XQ-e3V"/>
                             <constraint firstItem="9vp-cK-gsf" firstAttribute="top" secondItem="d6Z-ib-fNr" secondAttribute="bottom" constant="20" id="CNq-AQ-s3j"/>
+                            <constraint firstItem="d6Z-ib-fNr" firstAttribute="width" secondItem="RNY-KP-ee1" secondAttribute="width" id="F4T-Dy-9qI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sgh-PD-8Ko" secondAttribute="trailing" id="GAI-o6-tgF"/>
                             <constraint firstItem="RNY-KP-ee1" firstAttribute="centerX" secondItem="yAl-DA-cej" secondAttribute="centerX" id="M9s-oF-X4n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nF9-Pk-b6X" secondAttribute="trailing" id="Mm5-8H-S9N"/>
@@ -91,14 +127,19 @@
                             <constraint firstAttribute="leadingMargin" secondItem="nF9-Pk-b6X" secondAttribute="leading" id="SkI-J6-KXu"/>
                             <constraint firstAttribute="leadingMargin" secondItem="heB-Ui-YuR" secondAttribute="leading" id="Tul-Ig-P38"/>
                             <constraint firstItem="nF9-Pk-b6X" firstAttribute="top" secondItem="heB-Ui-YuR" secondAttribute="bottom" constant="8" id="Yan-Ca-WsG"/>
+                            <constraint firstItem="RNY-KP-ee1" firstAttribute="width" secondItem="yAl-DA-cej" secondAttribute="width" multiplier="0.7" id="ZFo-zV-Qjb"/>
                             <constraint firstAttribute="leadingMargin" secondItem="sgh-PD-8Ko" secondAttribute="leading" id="aaD-ch-M8X"/>
+                            <constraint firstItem="Njx-wD-6hy" firstAttribute="top" secondItem="RNY-KP-ee1" secondAttribute="bottom" constant="8" id="bDI-mT-Rbk"/>
+                            <constraint firstItem="Njx-wD-6hy" firstAttribute="centerX" secondItem="RNY-KP-ee1" secondAttribute="centerX" id="dXE-zx-cQD"/>
                             <constraint firstItem="d6Z-ib-fNr" firstAttribute="centerX" secondItem="W6i-gu-KJ5" secondAttribute="centerX" id="hGl-eq-EmQ"/>
+                            <constraint firstItem="Njx-wD-6hy" firstAttribute="width" secondItem="RNY-KP-ee1" secondAttribute="width" id="lf4-aN-CFl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="heB-Ui-YuR" secondAttribute="trailing" id="mgb-hd-XyX"/>
                             <constraint firstItem="heB-Ui-YuR" firstAttribute="top" secondItem="sgh-PD-8Ko" secondAttribute="bottom" constant="8" id="p2d-nk-4g5"/>
                             <constraint firstAttribute="leadingMargin" secondItem="yAl-DA-cej" secondAttribute="leading" id="wut-Yi-YDB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="Njx-wD-6hy" id="Rhs-rN-TAH"/>
                         <outlet property="emailTextField" destination="yAl-DA-cej" id="lyy-js-9mQ"/>
                         <outlet property="loginButton" destination="d6Z-ib-fNr" id="1Xc-ro-ehN"/>
                         <outlet property="passwordTextField" destination="nF9-Pk-b6X" id="3dN-Rg-3y6"/>

@@ -16,6 +16,8 @@
 - (IBAction)loginButtonPressed:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *signupButton;
 - (IBAction)signupButtonPressed:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIView *cancelButton;
+- (IBAction)cancelButtonPressed:(UIButton *)sender;
 
 @end
 
@@ -24,16 +26,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([self completion]) {
-        NSLog(@"Something's happening with completion");
-    }
-    NSLog(@"LoginVC just loaded...");
     [self setUpView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"LoginVG appearing...");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,30 +48,44 @@
     self.signupButton.layer.borderWidth = 1.0;
     self.signupButton.layer.borderColor = [darkBrownColor CGColor];
     self.signupButton.layer.cornerRadius = 15.0;
+    self.cancelButton.backgroundColor = salmonColor;
+    self.cancelButton.layer.borderWidth = 1.0;
+    self.cancelButton.layer.borderColor = [darkBrownColor CGColor];
+    self.cancelButton.layer.cornerRadius = 15.0;
     self.emailTextField.alpha = 0.0;
+    self.cancelButton.alpha = 0.0;
+    self.navigationController.navigationBarHidden = YES;
+    self.usernameTextField.delegate = self;
+    self.passwordTextField.delegate = self;
+    self.emailTextField.delegate = self;
 }
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
-    if ([self.loginButton.titleLabel.text isEqualToString:@"Log In"]) {
-        if (![self.usernameTextField.text isEqualToString:@""]) {
-            if (![self.passwordTextField.text isEqualToString:@""]) {
-                [PFUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser * _Nullable user, NSError * _Nullable error) {
-                    if (error) {
-                        NSLog(@"%@", error.userInfo);
+    if (![self.usernameTextField.text isEqualToString:@""]) {
+        if (![self.passwordTextField.text isEqualToString:@""]) {
+            [PFUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+                if (error) {
+                    NSLog(@"%@", error.userInfo);
+                }
+                if (user) {
+                    if (self.completion) {
+//                        if (self.delegate) {
+//                            [self.delegate didFinishLoggingIn];
+//                            self.navigationController.navigationBarHidden = NO;
+//                        }
+                        self.completion();
                     }
-                    if (user) {
-                        if (self.completion) {
-                            self.completion();
-                        }
-                    }
-                }];
-            }
-        } else {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Please enter a valid username and password." preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-            [alertController addAction:okAction];
-            [self presentViewController:alertController animated:YES completion:nil];
+                }
+            }];
         }
+    } else {
+        [self presentAlertController];
+    }
+}
+
+- (IBAction)signupButtonPressed:(UIButton *)sender {
+    if (self.emailTextField.alpha == 0.0) {
+        [self toggleAlpha];
     } else {
         if (![self.usernameTextField.text isEqualToString:@""]) {
             if (![self.passwordTextField.text isEqualToString:@""]) {
@@ -89,21 +100,38 @@
                         }
                         if (succeeded) {
                             if (self.completion) {
+//                                if (self.delegate) {
+//                                    [self.delegate didFinishLoggingIn];
+//                                    self.navigationController.navigationBarHidden = NO;
+//                                }
                                 self.completion();
                             }
                         }
                     }];
                 }
             }
+        } else {
+            [self presentAlertController];
         }
     }
 }
-- (IBAction)signupButtonPressed:(UIButton *)sender {
+
+- (IBAction)cancelButtonPressed:(UIButton *)sender {
+    [self toggleAlpha];
+}
+
+- (void)presentAlertController {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Please enter a valid username and password." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)toggleAlpha {
     [UIView animateWithDuration:0.4 animations:^{
         self.emailTextField.alpha = (self.emailTextField.alpha == 0.0 ? 1.0 : 0.0);
+        self.cancelButton.alpha = (self.cancelButton.alpha == 0.0 ? 1.0 : 0.0);
     }];
-    self.signupButton.alpha = (self.emailTextField.alpha == 0.0 ? 1.0 : 0.0);
-    self.loginButton.titleLabel.text = ([self.loginButton.titleLabel.text isEqualToString:@"Log In"] ? @"Sign Up" : @"Log In");
 }
 
 #pragma mark - UITextFieldDelegate

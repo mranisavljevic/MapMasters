@@ -31,11 +31,8 @@
     UIStoryboard *storyboard = [navController storyboard];
     LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     [navController pushViewController:loginVC animated:YES];
-    __weak typeof(LoginViewController) *weakLoginVC = loginVC;
     loginVC.completion = ^ {
-        __strong typeof(LoginViewController) *strongLoginVC = weakLoginVC;
-        [strongLoginVC.view removeFromSuperview];
-        [strongLoginVC removeFromParentViewController];
+        [navController popToRootViewControllerAnimated:YES];
     };
 }
 

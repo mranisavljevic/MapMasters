@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 #import "LocationService.h"
 #import "LocationDetailViewController.h"
+#import "LoginViewController.h"
 #import "Stack.h"
 #import "Queue.h"
 #import "Anagram.h"
@@ -17,11 +18,13 @@
 @import Parse;
 @import ParseUI;
 
-@interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate/*, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate*/>
+@interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate/*, LoginViewControllerDelegate*/>
 
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
 @property (strong, nonatomic) NSArray *reminders;
 - (IBAction)longPressGestureRecognized:(id)sender;
+@property (strong, nonatomic) NSArray *monitoredRegions;
+@property (strong, nonatomic) NSArray *monitoredOverlays;
 @property Stack *stack;
 @property Queue *queue;
 @property Anagram *anagram;
@@ -33,8 +36,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpView];
-//    [self logIn];
-    [self loadRemindersFromParse];
 //    [self testStack];
 //    [self testQueue];
 //    [self testAnagram];
@@ -45,7 +46,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"MapVC appearing...");
+    if ([PFUser currentUser]) {
+        [self loadRemindersFromParse];
+        [self addAdditionalUI];
+    }
+    self.navigationController.navigationBarHidden = NO;
     [[LocationService sharedService] setDelegate:self];
     [[LocationService sharedService]setMapView:self.locationMapView];
     [[[LocationService sharedService] locationManager] startUpdatingLocation];
@@ -65,8 +70,14 @@
 }
 
 - (void)loadRemindersFromParse {
+    for (CLCircularRegion *region in self.monitoredRegions) {
+        [[[LocationService sharedService] locationManager] stopMonitoringForRegion:region];
+    }
+    self.monitoredRegions = [NSArray array];
+    [self.locationMapView removeOverlays:self.monitoredOverlays];
+    self.monitoredOverlays = [NSArray array];
     PFQuery *query = [[PFQuery alloc] initWithClassName:@"Reminder"];
-//    [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
+    [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error.userInfo);
@@ -77,8 +88,10 @@
                 CLLocationCoordinate2D location = CLLocationCoordinate2DMake(reminder.location.latitude, reminder.location.longitude);
                 if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
                     CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:location radius:reminder.radius identifier:reminder.name];
+                    self.monitoredRegions = [self.monitoredRegions arrayByAddingObject:region];
                     [[[LocationService sharedService] locationManager] startMonitoringForRegion:region];
                     MKCircle *circle = [MKCircle circleWithCenterCoordinate:location radius:reminder.radius];
+                    self.monitoredOverlays = [self.monitoredOverlays arrayByAddingObject:circle];
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                         [self.locationMapView addOverlay:circle];
                     }];
@@ -107,24 +120,18 @@
             };
         }
     }
+    if ([segue.identifier isEqualToString:@"LoginViewController"]) {
+        LoginViewController *loginVC = (LoginViewController *)segue.destinationViewController;
+        loginVC.completion = ^ {
+            [[self navigationController] popToRootViewControllerAnimated:YES];
+        };
+//        loginVC.delegate = self;
+    }
 }
-
-//- (void)logIn {
-//    if (![PFUser currentUser]) {
-//        PFLogInViewController *logInVC = [[PFLogInViewController alloc] init];
-//        logInVC.delegate = self;
-//        PFSignUpViewController *signUpVC = [[PFSignUpViewController alloc] init];
-//        signUpVC.delegate = self;
-//        logInVC.signUpController = signUpVC;
-//        [self presentViewController:logInVC animated:YES completion:nil];
-//    } else {
-//        [self addAdditionalUI];
-//    }
-//}
 
 - (void)logOut {
     [PFUser logOut];
-//    [self logIn];
+    [self performSegueWithIdentifier:@"LoginViewController" sender:self];
 }
 
 - (void)addAdditionalUI {
@@ -221,18 +228,10 @@
     [self setRegion:region];
 }
 
-//#pragma mark - PFUserLogInViewControllerDelegate
+//#pragma mark - LoginViewControllerDelegate
 //
-//- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-//    [self dismissViewControllerAnimated:YES completion:nil];
+//- (void)didFinishLoggingIn {
 //    [self addAdditionalUI];
-//}
-//
-//#pragma mark - PFUserSignUpViewControllerDelegate
-//
-//- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-//    [self addAdditionalUI];
-//    [self dismissViewControllerAnimated:YES completion:nil];
 //}
 
 @end

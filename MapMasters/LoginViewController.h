@@ -9,10 +9,17 @@
 @import UIKit;
 @import Parse;
 
+//@protocol LoginViewControllerDelegate <NSObject>
+//
+//- (void)didFinishLoggingIn;
+//
+//@end
+
 typedef void(^LoginViewControllerCompletion)(void);
 
 @interface LoginViewController : UIViewController
 
 @property (copy, nonatomic) LoginViewControllerCompletion completion;
+@property (weak, nonatomic) id delegate;
 
 @end
