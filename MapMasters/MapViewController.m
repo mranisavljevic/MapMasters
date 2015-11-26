@@ -71,6 +71,15 @@
         }
         if (objects) {
             self.reminders = [[NSArray alloc] initWithArray:objects];
+            for (Reminder *reminder in self.reminders) {
+                CLLocationCoordinate2D location = CLLocationCoordinate2DMake(reminder.location.latitude, reminder.location.longitude);
+                if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
+                    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:location radius:reminder.radius identifier:reminder.name];
+                    [[[LocationService sharedService] locationManager] startMonitoringForRegion:region];
+                    MKCircle *circle = [MKCircle circleWithCenterCoordinate:location radius:reminder.radius];
+                    [self.locationMapView addOverlay:circle];
+                }
+            }
         }
     }];
 }
