@@ -18,6 +18,7 @@
 - (IBAction)signupButtonPressed:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIView *cancelButton;
 - (IBAction)cancelButtonPressed:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginButtonTopConstraint;
 
 @end
 
@@ -65,14 +66,10 @@
         if (![self.passwordTextField.text isEqualToString:@""]) {
             [PFUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser * _Nullable user, NSError * _Nullable error) {
                 if (error) {
-                    NSLog(@"%@", error.userInfo);
+                    NSLog(@"%@", error.userInfo[@"code"]);
                 }
                 if (user) {
                     if (self.completion) {
-//                        if (self.delegate) {
-//                            [self.delegate didFinishLoggingIn];
-//                            self.navigationController.navigationBarHidden = NO;
-//                        }
                         self.completion();
                     }
                 }
@@ -96,14 +93,10 @@
                     newUser.email = self.emailTextField.text;
                     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                         if (error) {
-                            NSLog(@"%@", error.userInfo);
+                            NSLog(@"%@", error.userInfo[@"code"]);
                         }
                         if (succeeded) {
                             if (self.completion) {
-//                                if (self.delegate) {
-//                                    [self.delegate didFinishLoggingIn];
-//                                    self.navigationController.navigationBarHidden = NO;
-//                                }
                                 self.completion();
                             }
                         }
@@ -128,9 +121,11 @@
 }
 
 - (void)toggleAlpha {
+    self.loginButtonTopConstraint.constant = (self.loginButtonTopConstraint.constant == 8 ? 96 : 8);
     [UIView animateWithDuration:0.4 animations:^{
         self.emailTextField.alpha = (self.emailTextField.alpha == 0.0 ? 1.0 : 0.0);
         self.cancelButton.alpha = (self.cancelButton.alpha == 0.0 ? 1.0 : 0.0);
+        [self.view layoutIfNeeded];
     }];
 }
 

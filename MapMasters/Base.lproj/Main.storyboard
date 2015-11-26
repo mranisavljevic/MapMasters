@@ -51,42 +51,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
-                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6Z-ib-fNr">
-                                <rect key="frame" x="104" y="544" width="392" height="36"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="85" id="ut3-El-hRe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
-                                <state key="normal" title="Log In">
-                                    <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ut3-El-hRe"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="loginButtonPressed:" destination="H6H-ny-VxA" eventType="touchUpInside" id="wXm-LQ-9V3"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNY-KP-ee1">
                                 <rect key="frame" x="104" y="281" width="392" height="36"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="85" id="Qcp-io-77M"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Qcp-io-77M"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <action selector="signupButtonPressed:" destination="H6H-ny-VxA" eventType="touchUpInside" id="Fbr-au-3el"/>
                                 </connections>
@@ -94,21 +66,25 @@
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njx-wD-6hy">
                                 <rect key="frame" x="104" y="325" width="392" height="36"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="85" id="Lf9-1Y-gU6"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="0.47843137254901957" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Lf9-1Y-gU6"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <action selector="cancelButtonPressed:" destination="H6H-ny-VxA" eventType="touchUpInside" id="Ydf-Jk-fF1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6Z-ib-fNr">
+                                <rect key="frame" x="104" y="325" width="392" height="36"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="H6H-ny-VxA" eventType="touchUpInside" id="wXm-LQ-9V3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -118,7 +94,7 @@
                             <constraint firstItem="RNY-KP-ee1" firstAttribute="top" secondItem="yAl-DA-cej" secondAttribute="bottom" constant="8" id="1XR-Wq-vKL"/>
                             <constraint firstItem="yAl-DA-cej" firstAttribute="top" secondItem="nF9-Pk-b6X" secondAttribute="bottom" constant="8" id="9hb-FC-fY6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yAl-DA-cej" secondAttribute="trailing" id="BUB-XQ-e3V"/>
-                            <constraint firstItem="9vp-cK-gsf" firstAttribute="top" secondItem="d6Z-ib-fNr" secondAttribute="bottom" constant="20" id="CNq-AQ-s3j"/>
+                            <constraint firstItem="d6Z-ib-fNr" firstAttribute="top" secondItem="RNY-KP-ee1" secondAttribute="bottom" constant="8" id="Bls-ax-Od6"/>
                             <constraint firstItem="d6Z-ib-fNr" firstAttribute="width" secondItem="RNY-KP-ee1" secondAttribute="width" id="F4T-Dy-9qI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sgh-PD-8Ko" secondAttribute="trailing" id="GAI-o6-tgF"/>
                             <constraint firstItem="RNY-KP-ee1" firstAttribute="centerX" secondItem="yAl-DA-cej" secondAttribute="centerX" id="M9s-oF-X4n"/>
@@ -142,6 +118,7 @@
                         <outlet property="cancelButton" destination="Njx-wD-6hy" id="Rhs-rN-TAH"/>
                         <outlet property="emailTextField" destination="yAl-DA-cej" id="lyy-js-9mQ"/>
                         <outlet property="loginButton" destination="d6Z-ib-fNr" id="1Xc-ro-ehN"/>
+                        <outlet property="loginButtonTopConstraint" destination="Bls-ax-Od6" id="abv-oF-tiP"/>
                         <outlet property="passwordTextField" destination="nF9-Pk-b6X" id="3dN-Rg-3y6"/>
                         <outlet property="signupButton" destination="RNY-KP-ee1" id="tQY-PI-wUp"/>
                         <outlet property="usernameTextField" destination="heB-Ui-YuR" id="xIb-AG-Cw1"/>
