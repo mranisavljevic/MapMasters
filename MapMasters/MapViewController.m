@@ -77,7 +77,9 @@
                     CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:location radius:reminder.radius identifier:reminder.name];
                     [[[LocationService sharedService] locationManager] startMonitoringForRegion:region];
                     MKCircle *circle = [MKCircle circleWithCenterCoordinate:location radius:reminder.radius];
-                    [self.locationMapView addOverlay:circle];
+                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                        [self.locationMapView addOverlay:circle];
+                    }];
                 }
             }
         }
