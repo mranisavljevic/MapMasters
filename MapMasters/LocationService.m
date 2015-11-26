@@ -11,9 +11,6 @@
 
 @interface LocationService () <CLLocationManagerDelegate>
 
-//- (void)startUpdatingLocation;
-//- (void)stopUpdatingLocation;
-
 @end
 
 @implementation LocationService
