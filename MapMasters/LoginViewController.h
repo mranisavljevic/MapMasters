@@ -7,6 +7,7 @@
 //
 
 @import UIKit;
+@import Parse;
 
 typedef void(^LoginViewControllerCompletion)(void);
 
