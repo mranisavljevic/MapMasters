@@ -20,15 +20,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map Masters" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgh-PD-8Ko">
-                                <rect key="frame" x="20" y="28" width="560" height="72"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heB-Ui-YuR">
-                                <rect key="frame" x="20" y="108" width="560" height="30"/>
+                                <rect key="frame" x="20" y="167" width="560" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.89803921568627454" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,7 +29,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nF9-Pk-b6X">
-                                <rect key="frame" x="20" y="146" width="560" height="30"/>
+                                <rect key="frame" x="20" y="205" width="560" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.89803921568627454" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,7 +37,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yAl-DA-cej">
-                                <rect key="frame" x="20" y="184" width="560" height="30"/>
+                                <rect key="frame" x="20" y="243" width="560" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.89803921568627454" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,7 +57,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNY-KP-ee1">
-                                <rect key="frame" x="259" y="222" width="83" height="36"/>
+                                <rect key="frame" x="259" y="281" width="83" height="36"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
@@ -76,6 +69,13 @@
                                     <action selector="signupButtonPressed:" destination="H6H-ny-VxA" eventType="touchUpInside" id="Fbr-au-3el"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map Masters" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgh-PD-8Ko">
+                                <rect key="frame" x="20" y="87" width="560" height="72"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.86666666670000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,7 +87,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="sgh-PD-8Ko" secondAttribute="trailing" id="GAI-o6-tgF"/>
                             <constraint firstItem="RNY-KP-ee1" firstAttribute="centerX" secondItem="yAl-DA-cej" secondAttribute="centerX" id="M9s-oF-X4n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nF9-Pk-b6X" secondAttribute="trailing" id="Mm5-8H-S9N"/>
-                            <constraint firstItem="sgh-PD-8Ko" firstAttribute="top" secondItem="tGw-Oe-ljM" secondAttribute="bottom" constant="8" id="Op1-Ga-LnB"/>
+                            <constraint firstItem="sgh-PD-8Ko" firstAttribute="top" secondItem="tGw-Oe-ljM" secondAttribute="bottom" constant="23" id="OQf-nk-gvS"/>
                             <constraint firstAttribute="leadingMargin" secondItem="nF9-Pk-b6X" secondAttribute="leading" id="SkI-J6-KXu"/>
                             <constraint firstAttribute="leadingMargin" secondItem="heB-Ui-YuR" secondAttribute="leading" id="Tul-Ig-P38"/>
                             <constraint firstItem="nF9-Pk-b6X" firstAttribute="top" secondItem="heB-Ui-YuR" secondAttribute="bottom" constant="8" id="Yan-Ca-WsG"/>
@@ -161,6 +161,7 @@
                     <connections>
                         <outlet property="locationMapView" destination="WCb-xU-nY0" id="xCb-Ru-4YF"/>
                         <segue destination="7Je-Sr-lIc" kind="show" identifier="LocationDetailViewController" id="N6S-Jw-OkY"/>
+                        <segue destination="H6H-ny-VxA" kind="show" identifier="LoginViewController" id="hsL-7E-qWv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

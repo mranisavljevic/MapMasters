@@ -29,11 +29,8 @@
 - (void)presentLoginSignupViewController {
     UINavigationController *navController = (UINavigationController *)[[self window] rootViewController];
     UIStoryboard *storyboard = [navController storyboard];
-    MapViewController *homeVC = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
     LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    [homeVC addChildViewController:loginVC];
-    [homeVC.view addSubview:loginVC.view];
-    [loginVC didMoveToParentViewController:homeVC];
+    [navController pushViewController:loginVC animated:YES];
     __weak typeof(LoginViewController) *weakLoginVC = loginVC;
     loginVC.completion = ^ {
         __strong typeof(LoginViewController) *strongLoginVC = weakLoginVC;

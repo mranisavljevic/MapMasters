@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -28,6 +28,7 @@
         NSLog(@"Something's happening with completion");
     }
     NSLog(@"LoginVC just loaded...");
+    [self setUpView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,4 +63,12 @@
 }
 - (IBAction)signupButtonPressed:(UIButton *)sender {
 }
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
 @end
