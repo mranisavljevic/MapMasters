@@ -34,7 +34,7 @@
         _locationManager.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         _locationManager.distanceFilter = 100;
-        [_locationManager requestWhenInUseAuthorization];
+        [_locationManager requestAlwaysAuthorization];
     }
     return self;
 }
@@ -47,7 +47,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+    if (status == kCLAuthorizationStatusAuthorizedAlways) {
         [self.mapView setShowsUserLocation:YES];
     }
 }
