@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "MapViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,7 @@
     [Parse setApplicationId:@"09b0698YNB51nOBuLTxOG1xRDtjVs2PmXZMGJqOM"
                   clientKey:@"F1vcVsUwJbw1qhdIZQvxOGnWtM0UVFSfzeUyk2LN"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
+    [self setUpLocalNotifications];
     return YES;
 }
 
@@ -44,6 +45,19 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"You're here!" message:notification.alertBody preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okAction];
+    MapViewController *mapViewController = [[MapViewController alloc] init];
+    [mapViewController presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)setUpLocalNotifications {
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
 }
 
 @end

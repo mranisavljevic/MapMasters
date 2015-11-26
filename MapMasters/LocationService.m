@@ -54,7 +54,10 @@
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
     if (region) {
-        //Local notification here
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertTitle = @"Ooh, you're here!";
+        notification.alertBody = region.identifier;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
 }
 
