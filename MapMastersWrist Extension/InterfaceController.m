@@ -20,8 +20,7 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-
-    // Configure interface objects here.
+    [self setUpTable];
 }
 
 - (void)willActivate {
@@ -37,8 +36,13 @@
 - (void)setUpTable {
     [self.reminderTable setNumberOfRows:10 withRowType:@"ReminderTableRowController"];
     for (int i = 0; i < [self.reminderTable numberOfRows]; i++) {
-        //
+        ReminderTableRowController *row = (ReminderTableRowController*)[self.reminderTable rowControllerAtIndex:i];
+        row.titleLabel.text = @"Just a test.";
     }
+}
+
+- (void)fetchParseData {
+    
 }
 
 @end

@@ -16,7 +16,7 @@
                                     <group key="rootItem" width="1" alignment="left" id="h7k-Qu-NpV">
                                         <items>
                                             <map width="40" height="40" alignment="left" id="JzB-f3-wa3"/>
-                                            <label width="79.5" height="40" alignment="left" text="Label" numberOfLines="0" id="Fzp-U1-NAz"/>
+                                            <label height="40" alignment="left" text="Label" numberOfLines="0" id="Fzp-U1-NAz"/>
                                         </items>
                                     </group>
                                     <connections>
