@@ -10,6 +10,7 @@
 #import "Stack.h"
 #import "Queue.h"
 #import "Anagram.h"
+#import "SumNumbersInString.h"
 
 @interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate>
 
@@ -22,6 +23,7 @@
 @property Stack *stack;
 @property Queue *queue;
 @property Anagram *anagram;
+@property SumNumbersInString *sumNums;
 
 @end
 
@@ -33,6 +35,7 @@
 //    [self testStack];
 //    [self testQueue];
 //    [self testAnagram];
+    [self testSumNumbersInString];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -191,6 +194,12 @@
     NSLog(answer ? @"YES" : @"NO");
     BOOL answerTwo = [self.anagram checkForAnagramWithString:@"not close" checkAgainst:@"at all"];
     NSLog(answerTwo ? @"YES" : @"NO");
+}
+
+- (void)testSumNumbersInString {
+    self.sumNums = [[SumNumbersInString alloc] init];
+    NSString *stringToTest = @"sdoi897sflj39LS9DH8dkjh38298";
+    NSLog(@"%@",[self.sumNums sumNumbersInString:stringToTest]);
 }
 
 - (IBAction)longPressGestureRecognized:(UIGestureRecognizer*)sender {
