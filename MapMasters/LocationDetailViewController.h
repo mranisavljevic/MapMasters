@@ -18,9 +18,11 @@ typedef void(^LocationDetailViewControllerCompletion)(MKCircle *circle);
 @interface LocationDetailViewController : UIViewController
 
 @property (copy, nonatomic) NSString* annotationTitle;
+//@property double radius;
 @property CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) LocationDetailViewControllerCompletion completion;
 @property BOOL addMode;
+@property Reminder *reminder;
 
 - (void)toggleAddUpdateView;
 

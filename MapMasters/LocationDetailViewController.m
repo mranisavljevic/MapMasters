@@ -53,6 +53,13 @@
     self.titleLabel.alpha = 0.0;
     self.radiusLabel.alpha = 0.0;
     
+    if (self.addMode) {
+        if (self.reminder) {
+            self.titleLabel.text = [NSString stringWithFormat:@"%@: %@", self.titleLabel.text, self.reminder.name];
+            self.radiusLabel.text = [NSString stringWithFormat:@"%@: %.2f", self.radiusLabel.text, self.reminder.radius];
+        }
+    }
+    
     self.removeReminderButton.backgroundColor = salmonColor;
     self.removeReminderButton.layer.borderColor = [darkBrownColor CGColor];
     self.removeReminderButton.layer.borderWidth = 1.0;

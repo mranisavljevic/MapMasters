@@ -224,7 +224,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BL-LY-Dvz">
-                                <rect key="frame" x="243.5" y="148" width="114" height="32"/>
+                                <rect key="frame" x="243" y="148" width="114" height="32"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
@@ -236,14 +236,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSp-eK-Wvz">
-                                <rect key="frame" x="20" y="74.5" width="560" height="22.5"/>
+                                <rect key="frame" x="20" y="74" width="560" height="22.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGI-0S-ttd">
-                                <rect key="frame" x="20" y="112.5" width="560" height="22.5"/>
+                                <rect key="frame" x="20" y="112" width="560" height="22.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -262,9 +262,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a7-yc-5u6">
-                                <rect key="frame" x="240" y="150" width="120" height="32"/>
+                                <rect key="frame" x="234" y="150" width="132" height="32"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                 <state key="normal" title="Update Reminder">
                                     <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>

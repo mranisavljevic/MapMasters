@@ -110,12 +110,10 @@
     if ([segue.identifier isEqualToString:@"LocationDetailViewController"]) {
         if ([segue.destinationViewController isKindOfClass:[LocationDetailViewController class]]) {
             LocationDetailViewController *detailVC = (LocationDetailViewController *)segue.destinationViewController;
-            [detailVC loadViewIfNeeded];
             if ([sender isKindOfClass:[Reminder class]]) {
                 Reminder *reminder = (Reminder*)sender;
-                CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(reminder.location.latitude, reminder.location.longitude);
-                detailVC.coordinate = coordinate;
-                detailVC.annotationTitle = reminder.name;
+                detailVC.reminder = reminder;
+                [detailVC loadViewIfNeeded];
                 if (detailVC.addMode) {
                     [detailVC toggleAddUpdateView];
                 }
