@@ -174,7 +174,8 @@
 }
 
 - (IBAction)radiusSliderChanged:(UISlider *)sender {
-    self.radiusLabel.text = [NSString stringWithFormat:@"%.f", sender.value];
+    int sliderValue = sender.value;
+    self.radiusLabel.text = [NSString stringWithFormat:@"%d", sliderValue - (sliderValue % 5)];
 }
 
 #pragma mark - UITextFieldDelegate
