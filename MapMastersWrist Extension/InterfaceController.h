@@ -8,6 +8,7 @@
 
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
+#import "ReminderTableRowController.h"
 
 @interface InterfaceController : WKInterfaceController
 

@@ -27,6 +27,9 @@
                             </items>
                         </table>
                     </items>
+                    <connections>
+                        <outlet property="reminderTable" destination="ik6-8E-3ZM" id="o3w-Lp-XOz"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>

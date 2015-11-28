@@ -11,6 +11,8 @@
 
 @interface InterfaceController()
 
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceTable *reminderTable;
+
 @end
 
 
@@ -30,6 +32,13 @@
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
+}
+
+- (void)setUpTable {
+    [self.reminderTable setNumberOfRows:10 withRowType:@"ReminderTableRowController"];
+    for (int i = 0; i < [self.reminderTable numberOfRows]; i++) {
+        //
+    }
 }
 
 @end
