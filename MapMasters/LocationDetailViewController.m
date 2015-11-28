@@ -48,7 +48,7 @@
     self.saveReminderButton.backgroundColor = salmonColor;
     self.saveReminderButton.layer.borderColor = [darkBrownColor CGColor];
     self.saveReminderButton.layer.borderWidth = 1.0;
-    self.saveReminderButton.layer.cornerRadius = 15.0;
+    self.saveReminderButton.layer.cornerRadius = 5.0;
     [self.titleTextField becomeFirstResponder];
     
     self.titleLabel.alpha = 0.0;
@@ -64,13 +64,13 @@
     self.removeReminderButton.backgroundColor = salmonColor;
     self.removeReminderButton.layer.borderColor = [darkBrownColor CGColor];
     self.removeReminderButton.layer.borderWidth = 1.0;
-    self.removeReminderButton.layer.cornerRadius = 15.0;
+    self.removeReminderButton.layer.cornerRadius = 5.0;
     self.removeReminderButton.alpha = 0.0;
     
     self.updateReminderButton.backgroundColor = salmonColor;
     self.updateReminderButton.layer.borderColor = [darkBrownColor CGColor];
     self.updateReminderButton.layer.borderWidth = 1.0;
-    self.updateReminderButton.layer.cornerRadius = 15.0;
+    self.updateReminderButton.layer.cornerRadius = 5.0;
     self.updateReminderButton.alpha = 0.0;
 }
 

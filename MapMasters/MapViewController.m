@@ -18,7 +18,7 @@
 @import Parse;
 @import ParseUI;
 
-@interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate/*, LoginViewControllerDelegate*/>
+@interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
 @property (strong, nonatomic) NSArray *reminders;
@@ -68,6 +68,8 @@
     self.locationMapView.layer.cornerRadius = 15.0;
     self.locationMapView.layer.borderColor = [darkBrownColor CGColor];
     self.locationMapView.layer.borderWidth = 1.0;
+    
+    [self.navigationController navigationBar].tintColor = darkBrownColor;
 }
 
 - (void)loadRemindersFromParse {
@@ -144,7 +146,6 @@
         loginVC.completion = ^ {
             [[self navigationController] popToRootViewControllerAnimated:YES];
         };
-//        loginVC.delegate = self;
     }
 }
 
@@ -211,19 +212,21 @@
 }
 
 - (IBAction)tapGestureRecognized:(UIGestureRecognizer*)sender {
-//    if (sender.state == UIGestureRecognizerStateBegan) {
-        CGPoint point = [sender locationInView:self.locationMapView];
-        CLLocationCoordinate2D coordinate = [self.locationMapView convertPoint:point toCoordinateFromView:self.locationMapView];
-        for (CLCircularRegion *region in self.monitoredRegions) {
-            if ([region containsCoordinate:coordinate]) {
-                for (Reminder *reminder in self.reminders) {
-                    if ([region.identifier isEqualToString:reminder.name]) {
-                        [self performSegueWithIdentifier:@"LocationDetailViewController" sender:reminder];
-                    }
+    CGPoint point = [sender locationInView:self.locationMapView];
+    CLLocationCoordinate2D coordinate = [self.locationMapView convertPoint:point toCoordinateFromView:self.locationMapView];
+    for (CLCircularRegion *region in self.monitoredRegions) {
+        if ([region containsCoordinate:coordinate]) {
+            for (Reminder *reminder in self.reminders) {
+                if ([region.identifier isEqualToString:reminder.name]) {
+                    [self performSegueWithIdentifier:@"LocationDetailViewController" sender:reminder];
                 }
             }
         }
-//    }
+    }
+}
+
+- (void)removeAnnotation:(MKAnnotationView*)annotationView {
+    [self.locationMapView removeAnnotation:annotationView.annotation];
 }
 
 #pragma mark - MKMapViewDelegate
@@ -240,13 +243,26 @@
     annotationView.canShowCallout = YES;
     annotationView.animatesDrop = YES;
     annotationView.pinTintColor = [UIColor colorWithRed:1.000 green:0.478 blue:0.000 alpha:0.800];
+    UIColor *darkBrownColor = [UIColor colorWithRed:0.435 green:0.275 blue:0.200 alpha:1.000];
     UIButton *rightCallout = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    rightCallout.tintColor = darkBrownColor;
     annotationView.rightCalloutAccessoryView = rightCallout;
+    UIButton *leftClose = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [leftClose setTitle:@"ⓧ" forState:UIControlStateNormal];
+    [leftClose.titleLabel setFont:[UIFont fontWithName:@"Futura" size:20]];
+    leftClose.frame = rightCallout.frame;
+    leftClose.tintColor = darkBrownColor;
+    annotationView.leftCalloutAccessoryView = leftClose;
     return annotationView;
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    [self performSegueWithIdentifier:@"LocationDetailViewController" sender:view];
+    UIButton *button = (UIButton*)control;
+    if ([button.titleLabel.text isEqualToString:@"ⓧ"]) {
+        [self removeAnnotation:view];
+    } else {
+        [self performSegueWithIdentifier:@"LocationDetailViewController" sender:view];
+    }
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
@@ -265,12 +281,4 @@
     [self setRegion:region];
 }
 
-//#pragma mark - LoginViewControllerDelegate
-//
-//- (void)didFinishLoggingIn {
-//    [self addAdditionalUI];
-//}
-
 @end
-
-
