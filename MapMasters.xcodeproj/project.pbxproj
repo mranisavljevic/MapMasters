@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		90102A001C04025100245956 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 901029FF1C04025100245956 /* Queue.m */; };
+		904E2FE31C0A233F0036E5A3 /* ReminderTableRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904E2FE21C0A233F0036E5A3 /* ReminderTableRowController.m */; };
 		905C02371C0501780038981A /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C02361C0501780038981A /* LocationService.m */; };
 		905C023A1C05155B0038981A /* LocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C02391C05155B0038981A /* LocationDetailViewController.m */; };
 		905C023D1C051A730038981A /* Anagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C023C1C051A730038981A /* Anagram.m */; };
@@ -115,6 +116,8 @@
 /* Begin PBXFileReference section */
 		901029FE1C04025100245956 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		901029FF1C04025100245956 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
+		904E2FE11C0A233F0036E5A3 /* ReminderTableRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderTableRowController.h; sourceTree = "<group>"; };
+		904E2FE21C0A233F0036E5A3 /* ReminderTableRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTableRowController.m; sourceTree = "<group>"; };
 		905C02351C0501780038981A /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
 		905C02361C0501780038981A /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 		905C02381C05155B0038981A /* LocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailViewController.h; sourceTree = "<group>"; };
@@ -249,6 +252,37 @@
 				90793B4F1C0954AF003F3EBD /* UIColorClassExtension.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		904E2FE41C0A23480036E5A3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				90793BE51C09958F003F3EBD /* NotificationController.h */,
+				90793BE61C09958F003F3EBD /* NotificationController.m */,
+				90793BDF1C09958F003F3EBD /* InterfaceController.h */,
+				90793BE01C09958F003F3EBD /* InterfaceController.m */,
+				904E2FE11C0A233F0036E5A3 /* ReminderTableRowController.h */,
+				904E2FE21C0A233F0036E5A3 /* ReminderTableRowController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		904E2FE51C0A23680036E5A3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				90793BE21C09958F003F3EBD /* ExtensionDelegate.h */,
+				90793BE31C09958F003F3EBD /* ExtensionDelegate.m */,
+				90793BEA1C09958F003F3EBD /* Info.plist */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		904E2FE61C0A236E0036E5A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90793BE81C09958F003F3EBD /* Assets.xcassets */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		905E40B81C03AC8C0029365C = {
@@ -398,7 +432,6 @@
 		90793BCD1C09958E003F3EBD /* MapMastersWrist */ = {
 			isa = PBXGroup;
 			children = (
-				90793BF91C099686003F3EBD /* Controller */,
 				90793BFA1C099697003F3EBD /* View */,
 				90793BFB1C09969D003F3EBD /* App */,
 			);
@@ -408,14 +441,9 @@
 		90793BDC1C09958F003F3EBD /* MapMastersWrist Extension */ = {
 			isa = PBXGroup;
 			children = (
-				90793BDF1C09958F003F3EBD /* InterfaceController.h */,
-				90793BE01C09958F003F3EBD /* InterfaceController.m */,
-				90793BE21C09958F003F3EBD /* ExtensionDelegate.h */,
-				90793BE31C09958F003F3EBD /* ExtensionDelegate.m */,
-				90793BE51C09958F003F3EBD /* NotificationController.h */,
-				90793BE61C09958F003F3EBD /* NotificationController.m */,
-				90793BE81C09958F003F3EBD /* Assets.xcassets */,
-				90793BEA1C09958F003F3EBD /* Info.plist */,
+				904E2FE41C0A23480036E5A3 /* Controller */,
+				904E2FE51C0A23680036E5A3 /* App */,
+				904E2FE61C0A236E0036E5A3 /* View */,
 				90793BDD1C09958F003F3EBD /* Supporting Files */,
 			);
 			path = "MapMastersWrist Extension";
@@ -427,13 +455,6 @@
 				90793BDE1C09958F003F3EBD /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		90793BF91C099686003F3EBD /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controller;
 			sourceTree = "<group>";
 		};
 		90793BFA1C099697003F3EBD /* View */ = {
@@ -688,6 +709,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90793BE41C09958F003F3EBD /* ExtensionDelegate.m in Sources */,
+				904E2FE31C0A233F0036E5A3 /* ReminderTableRowController.m in Sources */,
 				90793BE11C09958F003F3EBD /* InterfaceController.m in Sources */,
 				90793BE71C09958F003F3EBD /* NotificationController.m in Sources */,
 			);
@@ -831,11 +853,13 @@
 		905E40EF1C03AC8C0029365C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = MapMasters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.MapMasters;
@@ -846,11 +870,13 @@
 		905E40F01C03AC8C0029365C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = MapMasters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.MapMasters;
@@ -909,6 +935,11 @@
 		90793BEF1C09958F003F3EBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MapMastersWrist",
+					Extension,
+				);
 				INFOPLIST_FILE = "MapMastersWrist Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.MapMasters.watchkitapp.watchkitextension;
@@ -923,6 +954,11 @@
 		90793BF01C09958F003F3EBD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MapMastersWrist",
+					Extension,
+				);
 				INFOPLIST_FILE = "MapMastersWrist Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.MapMasters.watchkitapp.watchkitextension;
@@ -1010,6 +1046,7 @@
 				90793BF01C09958F003F3EBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90793BF21C09958F003F3EBD /* Build configuration list for PBXNativeTarget "MapMastersWrist" */ = {
 			isa = XCConfigurationList;
@@ -1018,6 +1055,7 @@
 				90793BF41C09958F003F3EBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

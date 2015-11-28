@@ -10,6 +10,7 @@
 
 
 @interface InterfaceController()
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceTable *reminderTable;
 
 @end
 
@@ -18,8 +19,10 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-
-    // Configure interface objects here.
+    self.reminderArray = @[];
+//    PFQuery *query = [[PFQuery alloc] initWithClassName:@"Reminder"];
+    
+    
 }
 
 - (void)willActivate {
@@ -32,7 +35,5 @@
     [super didDeactivate];
 }
 
+
 @end
-
-
-
