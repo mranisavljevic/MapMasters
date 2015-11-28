@@ -8,11 +8,7 @@
 
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
-//#import "Reminder.h"
-//@import Parse;
 
 @interface InterfaceController : WKInterfaceController
-
-@property (strong, nonatomic) NSArray *reminderArray;
 
 @end
