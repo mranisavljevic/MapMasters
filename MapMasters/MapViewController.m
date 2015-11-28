@@ -159,13 +159,6 @@
     self.navigationItem.leftBarButtonItem = signOutButton;
 }
 
-- (void)presentLocalNotification {
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertTitle = @"Alert!";
-    notification.alertBody = @"You've been alerted.";
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-}
-
 - (void)testStack {
     self.stack = [[Stack alloc] initWithStack:[@[@""] mutableCopy]];
     NSArray *copy = self.stack.stack;
