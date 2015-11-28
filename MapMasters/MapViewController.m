@@ -238,6 +238,8 @@
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomLocationPin"];
     }
     annotationView.canShowCallout = YES;
+    annotationView.animatesDrop = YES;
+    annotationView.pinTintColor = [UIColor colorWithRed:1.000 green:0.478 blue:0.000 alpha:0.800];
     UIButton *rightCallout = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     annotationView.rightCalloutAccessoryView = rightCallout;
     return annotationView;
