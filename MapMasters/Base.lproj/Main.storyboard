@@ -141,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WCb-xU-nY0">
-                                <rect key="frame" x="40" y="84" width="520" height="496"/>
+                                <rect key="frame" x="20" y="84" width="560" height="496"/>
                                 <animations/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -162,19 +162,11 @@
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.8666666666666667" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="WCb-xU-nY0" secondAttribute="trailing" constant="20" id="FYy-OA-6Yv"/>
+                            <constraint firstAttribute="trailing" secondItem="WCb-xU-nY0" secondAttribute="trailing" constant="20" id="FYy-OA-6Yv"/>
                             <constraint firstItem="WCb-xU-nY0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="KrG-yN-30X"/>
-                            <constraint firstItem="WCb-xU-nY0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Msl-qx-2wX"/>
+                            <constraint firstItem="WCb-xU-nY0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Msl-qx-2wX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WCb-xU-nY0" secondAttribute="bottom" constant="20" id="hKx-un-MSB"/>
-                            <constraint firstItem="WCb-xU-nY0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kW1-Nt-GhN"/>
-                            <constraint firstItem="WCb-xU-nY0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="yHr-xi-v7l"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="kW1-Nt-GhN"/>
-                                <exclude reference="yHr-xi-v7l"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="B5w-3y-0hd"/>
                     <connections>
@@ -249,18 +241,6 @@
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fom-hD-OZQ">
-                                <rect key="frame" x="233" y="188" width="134" height="32"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
-                                <state key="normal" title="Remove Reminder">
-                                    <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="removeReminderButtonPressed:" destination="7Je-Sr-lIc" eventType="touchUpInside" id="zQl-wU-Vgz"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a7-yc-5u6">
                                 <rect key="frame" x="234" y="150" width="132" height="32"/>
                                 <animations/>
@@ -273,17 +253,29 @@
                                     <action selector="updateReminderButtonPressed:" destination="7Je-Sr-lIc" eventType="touchUpInside" id="VHF-Ok-Nq5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fom-hD-OZQ">
+                                <rect key="frame" x="233" y="188" width="134" height="32"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                <state key="normal" title="Remove Reminder">
+                                    <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeReminderButtonPressed:" destination="7Je-Sr-lIc" eventType="touchUpInside" id="zQl-wU-Vgz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.86666666670000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Fom-hD-OZQ" firstAttribute="top" secondItem="1BL-LY-Dvz" secondAttribute="bottom" constant="8" id="0dX-7c-PNh"/>
                             <constraint firstItem="e5N-5p-xO5" firstAttribute="top" secondItem="AdJ-Uu-vQv" secondAttribute="bottom" constant="8" id="2TP-eD-X6y"/>
                             <constraint firstAttribute="leadingMargin" secondItem="AdJ-Uu-vQv" secondAttribute="leading" id="5as-wg-O1M"/>
                             <constraint firstAttribute="leadingMargin" secondItem="e5N-5p-xO5" secondAttribute="leading" id="6kP-un-GYt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LGI-0S-ttd" secondAttribute="trailing" id="Ekl-l0-4O0"/>
                             <constraint firstItem="AdJ-Uu-vQv" firstAttribute="top" secondItem="Gvm-a6-raa" secondAttribute="bottom" constant="8" id="G1b-6d-VET"/>
                             <constraint firstItem="0a7-yc-5u6" firstAttribute="top" secondItem="e5N-5p-xO5" secondAttribute="bottom" constant="10" id="Hk9-12-iR3"/>
+                            <constraint firstItem="Fom-hD-OZQ" firstAttribute="top" secondItem="0a7-yc-5u6" secondAttribute="bottom" constant="6" id="Kbf-7m-LFc"/>
                             <constraint firstItem="1BL-LY-Dvz" firstAttribute="top" secondItem="e5N-5p-xO5" secondAttribute="bottom" constant="8" id="RDy-i9-xey"/>
                             <constraint firstItem="hSp-eK-Wvz" firstAttribute="baseline" secondItem="AdJ-Uu-vQv" secondAttribute="baseline" id="XkZ-Wn-S8k"/>
                             <constraint firstItem="1BL-LY-Dvz" firstAttribute="centerX" secondItem="9St-3c-9YB" secondAttribute="centerX" id="aAO-by-txw"/>
@@ -304,6 +296,7 @@
                         <outlet property="saveReminderButton" destination="1BL-LY-Dvz" id="MUd-zN-yGq"/>
                         <outlet property="titleLabel" destination="hSp-eK-Wvz" id="B2Q-6z-Oux"/>
                         <outlet property="titleTextField" destination="AdJ-Uu-vQv" id="AoZ-r1-HL3"/>
+                        <outlet property="updateButtonTopConstraint" destination="Hk9-12-iR3" id="wT8-dB-rIZ"/>
                         <outlet property="updateReminderButton" destination="0a7-yc-5u6" id="Xb1-DI-ztf"/>
                     </connections>
                 </viewController>

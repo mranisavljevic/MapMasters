@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *radiusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *removeReminderButton;
 @property (weak, nonatomic) IBOutlet UIButton *updateReminderButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *updateButtonTopConstraint;
 
 - (IBAction)saveReminderButtonPressed:(UIButton *)sender;
 - (IBAction)removeReminderButtonPressed:(UIButton *)sender;
@@ -106,6 +107,21 @@
 }
 
 - (IBAction)updateReminderButtonPressed:(UIButton *)sender {
+    self.titleTextField.text = self.reminder.name;
+    self.updateButtonTopConstraint.constant = self.updateButtonTopConstraint.constant == 96 ? 8 : 96;
+    self.radiusTextField.text = [NSString stringWithFormat:@"%.2f", self.reminder.radius];
+    [UIView animateWithDuration:0.4 animations:^{
+        [self.view layoutIfNeeded];
+        self.saveReminderButton.alpha = self.saveReminderButton.alpha == 1.0 ? 0.0 : 1.0;
+        self.titleTextField.alpha = self.titleTextField.alpha == 1.0 ? 0.0 : 1.0;
+        self.radiusTextField.alpha = self.radiusTextField.alpha == 1.0 ? 0.0 : 1.0;
+        self.titleLabel.alpha = self.titleLabel.alpha == 1.0 ? 0.0 : 1.0;
+        self.radiusLabel.alpha = self.radiusLabel.alpha == 1.0 ? 0.0 : 1.0;
+    }];
+    [self.updateReminderButton setTitle:([[self.updateReminderButton titleForState:UIControlStateNormal] isEqualToString: @"Update Reminder"] ? @"Cancel" : @"Update Reminder") forState:UIControlStateNormal];
+    [self.updateReminderButton setTitle:([[self.updateReminderButton titleForState:UIControlStateNormal] isEqualToString: @"Update Reminder"] ? @"Cancel" : @"Update Reminder") forState:UIControlStateSelected];
+    [self.updateReminderButton setTitle:([[self.updateReminderButton titleForState:UIControlStateNormal] isEqualToString: @"Update Reminder"] ? @"Cancel" : @"Update Reminder") forState:UIControlStateFocused];
+    [self.updateReminderButton setTitle:([[self.updateReminderButton titleForState:UIControlStateNormal] isEqualToString: @"Update Reminder"] ? @"Cancel" : @"Update Reminder") forState:UIControlStateHighlighted];
 }
 
 #pragma mark - UITextFieldDelegate
