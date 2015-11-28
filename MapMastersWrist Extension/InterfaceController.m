@@ -41,10 +41,6 @@
     }
 }
 
-- (void)fetchParseData {
-    
-}
-
 @end
 
 
