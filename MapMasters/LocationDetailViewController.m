@@ -86,21 +86,47 @@
 }
 
 - (IBAction)saveReminderButtonPressed:(UIButton *)sender {
-    Reminder *reminder = [[Reminder alloc] init];
-    reminder.name = self.titleTextField.text;
-    reminder.radius = self.radiusTextField.text.floatValue;
-    reminder.location = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
-    reminder.userId = [[PFUser currentUser] objectId];
-    [reminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (self.completion) {
-            if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
-                CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.coordinate radius:self.radiusTextField.text.floatValue identifier:self.titleTextField.text];
-                [[[LocationService sharedService] locationManager] startMonitoringForRegion:region];
-                self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:self.radiusTextField.text.doubleValue]);
-                [self.navigationController popToRootViewControllerAnimated:YES];
+    if (self.reminder) {
+        PFQuery *query = [[PFQuery alloc] initWithClassName:@"Reminder"];
+        [query whereKey:@"objectId" equalTo:self.reminder.objectId];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"%@", error.userInfo);
             }
-        }
-    }];
+            if ([object isKindOfClass:[Reminder class]]) {
+                Reminder *reminder = (Reminder*)object;
+                reminder.name = self.titleTextField.text;
+                reminder.radius = self.radiusTextField.text.floatValue;
+                [reminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (self.completion) {
+                        if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
+                            CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.coordinate radius:self.radiusTextField.text.floatValue identifier:self.titleTextField.text];
+                            [[[LocationService sharedService] locationManager] startMonitoringForRegion:region];
+                            self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:self.radiusTextField.text.doubleValue]);
+                            [self.navigationController popToRootViewControllerAnimated:YES];
+                        }
+                    }
+                }];
+            }
+        }];
+    } else {
+        Reminder *reminder = [[Reminder alloc] init];
+        reminder.name = self.titleTextField.text;
+        reminder.radius = self.radiusTextField.text.floatValue;
+        reminder.location = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
+        reminder.userId = [[PFUser currentUser] objectId];
+        reminder.enabled = YES;
+        [reminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (self.completion) {
+                if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
+                    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.coordinate radius:self.radiusTextField.text.floatValue identifier:self.titleTextField.text];
+                    [[[LocationService sharedService] locationManager] startMonitoringForRegion:region];
+                    self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:self.radiusTextField.text.doubleValue]);
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }
+            }
+        }];
+    }
 }
 
 - (IBAction)removeReminderButtonPressed:(UIButton *)sender {

@@ -14,6 +14,8 @@
 @dynamic location;
 @dynamic radius;
 @dynamic userId;
+@dynamic enabled;
+@dynamic objectId;
 
 + (void)load {
     [self registerSubclass];

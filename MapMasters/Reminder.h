@@ -14,5 +14,7 @@
 @property float radius;
 @property (strong, nonatomic) PFGeoPoint *location;
 @property (strong, nonatomic) NSString *userId;
+@property BOOL enabled;
+@property (strong, nonatomic) NSString *objectId;
 
 @end

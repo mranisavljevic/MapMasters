@@ -79,6 +79,7 @@
     self.monitoredOverlays = [NSArray array];
     PFQuery *query = [[PFQuery alloc] initWithClassName:@"Reminder"];
     [query whereKey:@"userId" equalTo:[[PFUser currentUser] objectId]];
+    [query whereKey:@"enabled" equalTo:[NSNumber numberWithBool:YES]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error.userInfo);
@@ -117,6 +118,11 @@
                 if (detailVC.addMode) {
                     [detailVC toggleAddUpdateView];
                 }
+                __weak typeof(self) weakSelf = self;
+                detailVC.completion = ^(MKCircle *circle) {
+                    __strong typeof(self) strongSelf = weakSelf;
+                    [strongSelf.locationMapView addOverlay:circle];
+                };
             } else {
                 MKAnnotationView *annotationView = (MKAnnotationView *)sender;
                 detailVC.coordinate = annotationView.annotation.coordinate;
