@@ -48,6 +48,7 @@
 		90793BE71C09958F003F3EBD /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90793BE61C09958F003F3EBD /* NotificationController.m */; };
 		90793BE91C09958F003F3EBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90793BE81C09958F003F3EBD /* Assets.xcassets */; };
 		90793BED1C09958F003F3EBD /* MapMastersWrist.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 90793BCC1C09958E003F3EBD /* MapMastersWrist.app */; };
+		90B4FE4D1C0A52FA00087624 /* ReminderTableRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B4FE4C1C0A52FA00087624 /* ReminderTableRowController.m */; };
 		90F7FCE01C06BC7400E31AEC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F7FCDF1C06BC7400E31AEC /* LoginViewController.m */; };
 		90FC62E21C0657D200FC0C87 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62DE1C0657D200FC0C87 /* ParseFacebookUtils.framework */; };
 		90FC62E31C0657D200FC0C87 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62DF1C0657D200FC0C87 /* ParseFacebookUtilsV4.framework */; };
@@ -177,6 +178,8 @@
 		90793BE61C09958F003F3EBD /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
 		90793BE81C09958F003F3EBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90793BEA1C09958F003F3EBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90B4FE4B1C0A52FA00087624 /* ReminderTableRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderTableRowController.h; sourceTree = "<group>"; };
+		90B4FE4C1C0A52FA00087624 /* ReminderTableRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTableRowController.m; sourceTree = "<group>"; };
 		90F7FCDE1C06BC7400E31AEC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		90F7FCDF1C06BC7400E31AEC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		90FC62DE1C0657D200FC0C87 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -408,14 +411,9 @@
 		90793BDC1C09958F003F3EBD /* MapMastersWrist Extension */ = {
 			isa = PBXGroup;
 			children = (
-				90793BDF1C09958F003F3EBD /* InterfaceController.h */,
-				90793BE01C09958F003F3EBD /* InterfaceController.m */,
-				90793BE21C09958F003F3EBD /* ExtensionDelegate.h */,
-				90793BE31C09958F003F3EBD /* ExtensionDelegate.m */,
-				90793BE51C09958F003F3EBD /* NotificationController.h */,
-				90793BE61C09958F003F3EBD /* NotificationController.m */,
-				90793BE81C09958F003F3EBD /* Assets.xcassets */,
-				90793BEA1C09958F003F3EBD /* Info.plist */,
+				90B4FE4E1C0A530100087624 /* Controller */,
+				90B4FE4F1C0A530E00087624 /* App */,
+				90B4FE501C0A531800087624 /* View */,
 				90793BDD1C09958F003F3EBD /* Supporting Files */,
 			);
 			path = "MapMastersWrist Extension";
@@ -451,6 +449,37 @@
 				90793BD31C09958E003F3EBD /* Info.plist */,
 			);
 			name = App;
+			sourceTree = "<group>";
+		};
+		90B4FE4E1C0A530100087624 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				90793BDF1C09958F003F3EBD /* InterfaceController.h */,
+				90793BE01C09958F003F3EBD /* InterfaceController.m */,
+				90B4FE4B1C0A52FA00087624 /* ReminderTableRowController.h */,
+				90B4FE4C1C0A52FA00087624 /* ReminderTableRowController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		90B4FE4F1C0A530E00087624 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				90793BE21C09958F003F3EBD /* ExtensionDelegate.h */,
+				90793BE31C09958F003F3EBD /* ExtensionDelegate.m */,
+				90793BE51C09958F003F3EBD /* NotificationController.h */,
+				90793BE61C09958F003F3EBD /* NotificationController.m */,
+				90793BEA1C09958F003F3EBD /* Info.plist */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		90B4FE501C0A531800087624 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90793BE81C09958F003F3EBD /* Assets.xcassets */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -688,6 +717,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90793BE41C09958F003F3EBD /* ExtensionDelegate.m in Sources */,
+				90B4FE4D1C0A52FA00087624 /* ReminderTableRowController.m in Sources */,
 				90793BE11C09958F003F3EBD /* InterfaceController.m in Sources */,
 				90793BE71C09958F003F3EBD /* NotificationController.m in Sources */,
 			);
@@ -1010,6 +1040,7 @@
 				90793BF01C09958F003F3EBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90793BF21C09958F003F3EBD /* Build configuration list for PBXNativeTarget "MapMastersWrist" */ = {
 			isa = XCConfigurationList;
@@ -1018,6 +1049,7 @@
 				90793BF41C09958F003F3EBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
