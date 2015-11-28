@@ -21,40 +21,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map Masters" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgh-PD-8Ko">
-                                <rect key="frame" x="20" y="87" width="560" height="72"/>
+                                <rect key="frame" x="20" y="87" width="560" height="78"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="60"/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heB-Ui-YuR">
-                                <rect key="frame" x="20" y="167" width="560" height="30"/>
+                                <rect key="frame" x="20" y="173" width="560" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.89803921568627454" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nF9-Pk-b6X">
-                                <rect key="frame" x="20" y="205" width="560" height="30"/>
+                                <rect key="frame" x="20" y="211" width="560" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.89803921568627454" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yAl-DA-cej">
-                                <rect key="frame" x="20" y="243" width="560" height="30"/>
+                                <rect key="frame" x="20" y="249" width="560" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.89803921568627454" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNY-KP-ee1">
-                                <rect key="frame" x="104" y="281" width="392" height="36"/>
+                                <rect key="frame" x="104" y="287" width="392" height="38"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,9 +64,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njx-wD-6hy">
-                                <rect key="frame" x="104" y="325" width="392" height="36"/>
+                                <rect key="frame" x="104" y="333" width="392" height="38"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="0.47843137254901957" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,9 +76,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6Z-ib-fNr">
-                                <rect key="frame" x="104" y="325" width="392" height="36"/>
+                                <rect key="frame" x="104" y="333" width="392" height="38"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -155,6 +155,7 @@
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ZMP-i0-bnH"/>
                                     <outletCollection property="gestureRecognizers" destination="tiP-hz-FeQ" appends="YES" id="x7d-uz-XNQ"/>
+                                    <outletCollection property="gestureRecognizers" destination="QHL-35-EMd" appends="YES" id="EiD-F0-SRq"/>
                                 </connections>
                             </mapView>
                         </subviews>
@@ -188,6 +189,11 @@
                         <action selector="longPressGestureRecognized:" destination="BYZ-38-t0r" id="SMq-cg-9nU"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="QHL-35-EMd">
+                    <connections>
+                        <action selector="tapGestureRecognized:" destination="BYZ-38-t0r" id="KMI-cP-zlV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1092" y="308"/>
         </scene>
@@ -207,19 +213,20 @@
                                 <rect key="frame" x="20" y="72" width="560" height="30"/>
                                 <animations/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Radius" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5N-5p-xO5">
                                 <rect key="frame" x="20" y="110" width="560" height="30"/>
                                 <animations/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BL-LY-Dvz">
-                                <rect key="frame" x="243" y="148" width="115" height="30"/>
+                                <rect key="frame" x="243.5" y="148" width="114" height="32"/>
                                 <animations/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                 <state key="normal" title="Save Reminder">
                                     <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,24 +235,75 @@
                                     <action selector="saveReminderButtonPressed:" destination="7Je-Sr-lIc" eventType="touchUpInside" id="ChK-AG-gVT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSp-eK-Wvz">
+                                <rect key="frame" x="20" y="74.5" width="560" height="22.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGI-0S-ttd">
+                                <rect key="frame" x="20" y="112.5" width="560" height="22.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fom-hD-OZQ">
+                                <rect key="frame" x="233" y="188" width="134" height="32"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                <state key="normal" title="Remove Reminder">
+                                    <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeReminderButtonPressed:" destination="7Je-Sr-lIc" eventType="touchUpInside" id="zQl-wU-Vgz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a7-yc-5u6">
+                                <rect key="frame" x="240" y="150" width="120" height="32"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <state key="normal" title="Update Reminder">
+                                    <color key="titleColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateReminderButtonPressed:" destination="7Je-Sr-lIc" eventType="touchUpInside" id="VHF-Ok-Nq5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.86666666670000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Fom-hD-OZQ" firstAttribute="top" secondItem="1BL-LY-Dvz" secondAttribute="bottom" constant="8" id="0dX-7c-PNh"/>
                             <constraint firstItem="e5N-5p-xO5" firstAttribute="top" secondItem="AdJ-Uu-vQv" secondAttribute="bottom" constant="8" id="2TP-eD-X6y"/>
                             <constraint firstAttribute="leadingMargin" secondItem="AdJ-Uu-vQv" secondAttribute="leading" id="5as-wg-O1M"/>
                             <constraint firstAttribute="leadingMargin" secondItem="e5N-5p-xO5" secondAttribute="leading" id="6kP-un-GYt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LGI-0S-ttd" secondAttribute="trailing" id="Ekl-l0-4O0"/>
                             <constraint firstItem="AdJ-Uu-vQv" firstAttribute="top" secondItem="Gvm-a6-raa" secondAttribute="bottom" constant="8" id="G1b-6d-VET"/>
+                            <constraint firstItem="0a7-yc-5u6" firstAttribute="top" secondItem="e5N-5p-xO5" secondAttribute="bottom" constant="10" id="Hk9-12-iR3"/>
                             <constraint firstItem="1BL-LY-Dvz" firstAttribute="top" secondItem="e5N-5p-xO5" secondAttribute="bottom" constant="8" id="RDy-i9-xey"/>
-                            <constraint firstItem="1BL-LY-Dvz" firstAttribute="centerX" secondItem="e5N-5p-xO5" secondAttribute="centerX" id="rDM-vp-8Fq"/>
+                            <constraint firstItem="hSp-eK-Wvz" firstAttribute="baseline" secondItem="AdJ-Uu-vQv" secondAttribute="baseline" id="XkZ-Wn-S8k"/>
+                            <constraint firstItem="1BL-LY-Dvz" firstAttribute="centerX" secondItem="9St-3c-9YB" secondAttribute="centerX" id="aAO-by-txw"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="hSp-eK-Wvz" secondAttribute="leading" id="cCF-MX-oXL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hSp-eK-Wvz" secondAttribute="trailing" id="e36-BB-OKD"/>
+                            <constraint firstItem="0a7-yc-5u6" firstAttribute="centerX" secondItem="9St-3c-9YB" secondAttribute="centerX" id="fBh-8T-M2X"/>
+                            <constraint firstItem="LGI-0S-ttd" firstAttribute="baseline" secondItem="e5N-5p-xO5" secondAttribute="baseline" id="g5G-T6-5oH"/>
+                            <constraint firstItem="Fom-hD-OZQ" firstAttribute="centerX" secondItem="9St-3c-9YB" secondAttribute="centerX" id="gDX-U6-IeU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e5N-5p-xO5" secondAttribute="trailing" id="vZx-I9-Yj1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AdJ-Uu-vQv" secondAttribute="trailing" id="yZW-vY-1mN"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="LGI-0S-ttd" secondAttribute="leading" id="yzL-43-jfz"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="radiusLabel" destination="LGI-0S-ttd" id="1KE-F7-N3N"/>
                         <outlet property="radiusTextField" destination="e5N-5p-xO5" id="SVa-xg-3v3"/>
+                        <outlet property="removeReminderButton" destination="Fom-hD-OZQ" id="CpA-KS-IMM"/>
                         <outlet property="saveReminderButton" destination="1BL-LY-Dvz" id="MUd-zN-yGq"/>
+                        <outlet property="titleLabel" destination="hSp-eK-Wvz" id="B2Q-6z-Oux"/>
                         <outlet property="titleTextField" destination="AdJ-Uu-vQv" id="AoZ-r1-HL3"/>
+                        <outlet property="updateReminderButton" destination="0a7-yc-5u6" id="Xb1-DI-ztf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LeR-PX-5ah" userLabel="First Responder" sceneMemberID="firstResponder"/>

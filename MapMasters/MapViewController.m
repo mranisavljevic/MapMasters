@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
 @property (strong, nonatomic) NSArray *reminders;
 - (IBAction)longPressGestureRecognized:(id)sender;
+- (IBAction)tapGestureRecognized:(id)sender;
 @property (strong, nonatomic) NSArray *monitoredRegions;
 @property (strong, nonatomic) NSArray *monitoredOverlays;
 @property Stack *stack;
@@ -109,15 +110,29 @@
     if ([segue.identifier isEqualToString:@"LocationDetailViewController"]) {
         if ([segue.destinationViewController isKindOfClass:[LocationDetailViewController class]]) {
             LocationDetailViewController *detailVC = (LocationDetailViewController *)segue.destinationViewController;
-            MKAnnotationView *annotationView = (MKAnnotationView *)sender;
-            detailVC.coordinate = annotationView.annotation.coordinate;
-            detailVC.annotationTitle = annotationView.annotation.title;
-            __weak typeof(self) weakSelf = self;
-            detailVC.completion = ^(MKCircle *circle) {
-                __strong typeof(self) strongSelf = weakSelf;
-                [strongSelf.locationMapView removeAnnotation:annotationView.annotation];
-                [strongSelf.locationMapView addOverlay:circle];
-            };
+            [detailVC loadViewIfNeeded];
+            if ([sender isKindOfClass:[Reminder class]]) {
+                Reminder *reminder = (Reminder*)sender;
+                CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(reminder.location.latitude, reminder.location.longitude);
+                detailVC.coordinate = coordinate;
+                detailVC.annotationTitle = reminder.name;
+                if (detailVC.addMode) {
+                    [detailVC toggleAddUpdateView];
+                }
+            } else {
+                MKAnnotationView *annotationView = (MKAnnotationView *)sender;
+                detailVC.coordinate = annotationView.annotation.coordinate;
+                detailVC.annotationTitle = annotationView.annotation.title;
+                if (!detailVC.addMode) {
+                    [detailVC toggleAddUpdateView];
+                }
+                __weak typeof(self) weakSelf = self;
+                detailVC.completion = ^(MKCircle *circle) {
+                    __strong typeof(self) strongSelf = weakSelf;
+                    [strongSelf.locationMapView removeAnnotation:annotationView.annotation];
+                    [strongSelf.locationMapView addOverlay:circle];
+                };
+            }
         }
     }
     if ([segue.identifier isEqualToString:@"LoginViewController"]) {
@@ -189,6 +204,22 @@
         annotation.title = @"New Location";
         [self.locationMapView addAnnotation:annotation];
     }
+}
+
+- (IBAction)tapGestureRecognized:(UIGestureRecognizer*)sender {
+//    if (sender.state == UIGestureRecognizerStateBegan) {
+        CGPoint point = [sender locationInView:self.locationMapView];
+        CLLocationCoordinate2D coordinate = [self.locationMapView convertPoint:point toCoordinateFromView:self.locationMapView];
+        for (CLCircularRegion *region in self.monitoredRegions) {
+            if ([region containsCoordinate:coordinate]) {
+                for (Reminder *reminder in self.reminders) {
+                    if ([region.identifier isEqualToString:reminder.name]) {
+                        [self performSegueWithIdentifier:@"LocationDetailViewController" sender:reminder];
+                    }
+                }
+            }
+        }
+//    }
 }
 
 #pragma mark - MKMapViewDelegate

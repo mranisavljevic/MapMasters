@@ -20,5 +20,8 @@ typedef void(^LocationDetailViewControllerCompletion)(MKCircle *circle);
 @property (copy, nonatomic) NSString* annotationTitle;
 @property CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) LocationDetailViewControllerCompletion completion;
+@property BOOL addMode;
+
+- (void)toggleAddUpdateView;
 
 @end
