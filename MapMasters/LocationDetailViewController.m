@@ -130,6 +130,30 @@
 }
 
 - (IBAction)removeReminderButtonPressed:(UIButton *)sender {
+    if (self.reminder) {
+        PFQuery *query = [[PFQuery alloc] initWithClassName:@"Reminder"];
+        [query whereKey:@"objectId" equalTo:self.reminder.objectId];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"%@", error.userInfo);
+            }
+            if ([object isKindOfClass:[Reminder class]]) {
+                Reminder *reminder = (Reminder*)object;
+                reminder.enabled = NO;
+                [reminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (error) {
+                        NSLog(@"%@", error.userInfo);
+                    }
+                    if (succeeded) {
+                        if (self.completion) {
+                            self.completion(nil);
+                            [self.navigationController popToRootViewControllerAnimated:YES];
+                        }
+                    }
+                }];
+            }
+        }];
+    }
 }
 
 - (IBAction)updateReminderButtonPressed:(UIButton *)sender {
