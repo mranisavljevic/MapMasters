@@ -7,16 +7,9 @@
 //
 
 #import "MapViewController.h"
-#import "LocationService.h"
-#import "LocationDetailViewController.h"
-#import "LoginViewController.h"
 #import "Stack.h"
 #import "Queue.h"
 #import "Anagram.h"
-@import MapKit;
-@import CoreLocation;
-@import Parse;
-@import ParseUI;
 
 @interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate>
 
@@ -63,13 +56,13 @@
 
 - (void)setUpView {
     
-    UIColor *darkBrownColor = [UIColor colorWithRed:0.435 green:0.275 blue:0.200 alpha:1.000];
+//    UIColor *darkBrownColor = [UIColor colorWithRed:0.435 green:0.275 blue:0.200 alpha:1.000];
     self.locationMapView.mapType = MKMapTypeSatellite;
     self.locationMapView.layer.cornerRadius = 15.0;
-    self.locationMapView.layer.borderColor = [darkBrownColor CGColor];
+    self.locationMapView.layer.borderColor = [[UIColor darkBrownColor] CGColor];
     self.locationMapView.layer.borderWidth = 1.0;
     
-    [self.navigationController navigationBar].tintColor = darkBrownColor;
+    [self.navigationController navigationBar].tintColor = [UIColor darkBrownColor];
 }
 
 - (void)loadRemindersFromParse {
@@ -242,16 +235,15 @@
     }
     annotationView.canShowCallout = YES;
     annotationView.animatesDrop = YES;
-    annotationView.pinTintColor = [UIColor colorWithRed:1.000 green:0.478 blue:0.000 alpha:0.800];
-    UIColor *darkBrownColor = [UIColor colorWithRed:0.435 green:0.275 blue:0.200 alpha:1.000];
+    annotationView.pinTintColor = [UIColor orangePinColor];
     UIButton *rightCallout = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    rightCallout.tintColor = darkBrownColor;
+    rightCallout.tintColor = [UIColor darkBrownColor];
     annotationView.rightCalloutAccessoryView = rightCallout;
     UIButton *leftClose = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [leftClose setTitle:@"ⓧ" forState:UIControlStateNormal];
     [leftClose.titleLabel setFont:[UIFont fontWithName:@"Futura" size:20]];
     leftClose.frame = rightCallout.frame;
-    leftClose.tintColor = darkBrownColor;
+    leftClose.tintColor = [UIColor darkBrownColor];
     annotationView.leftCalloutAccessoryView = leftClose;
     return annotationView;
 }
@@ -267,10 +259,8 @@
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     MKCircleRenderer *circle = [[MKCircleRenderer alloc] initWithCircle:overlay];
-    UIColor *orangeOverlayColor = [UIColor colorWithRed:1.000 green:0.490 blue:0.020 alpha:0.650];
-    UIColor *greyOverlayBorderColor = [UIColor colorWithRed:0.549 green:0.510 blue:0.475 alpha:0.650];
-    circle.strokeColor = greyOverlayBorderColor;
-    circle.fillColor = orangeOverlayColor;
+    circle.strokeColor = [UIColor greyOverlayBorderColor];
+    circle.fillColor = [UIColor orangeOverlayColor];
     return circle;
 }
 

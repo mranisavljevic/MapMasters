@@ -35,6 +35,7 @@
 		905E41181C03B04A0029365C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 905E41171C03B04A0029365C /* libsqlite3.tbd */; };
 		905E411B1C03B2E30029365C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E411A1C03B2E30029365C /* MapViewController.m */; };
 		905E41211C03CC1A0029365C /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E41201C03CC1A0029365C /* Stack.m */; };
+		90793B501C0954AF003F3EBD /* UIColorClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 90793B4F1C0954AF003F3EBD /* UIColorClassExtension.m */; };
 		90F7FCE01C06BC7400E31AEC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F7FCDF1C06BC7400E31AEC /* LoginViewController.m */; };
 		90FC62E21C0657D200FC0C87 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62DE1C0657D200FC0C87 /* ParseFacebookUtils.framework */; };
 		90FC62E31C0657D200FC0C87 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62DF1C0657D200FC0C87 /* ParseFacebookUtilsV4.framework */; };
@@ -102,6 +103,8 @@
 		905E411A1C03B2E30029365C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		905E411F1C03CC1A0029365C /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		905E41201C03CC1A0029365C /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		90793B4E1C0954AF003F3EBD /* UIColorClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorClassExtension.h; sourceTree = "<group>"; };
+		90793B4F1C0954AF003F3EBD /* UIColorClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorClassExtension.m; sourceTree = "<group>"; };
 		90F7FCDE1C06BC7400E31AEC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		90F7FCDF1C06BC7400E31AEC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		90FC62DE1C0657D200FC0C87 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				905C02361C0501780038981A /* LocationService.m */,
 				90FC62E61C066FD000FC0C87 /* Reminder.h */,
 				90FC62E71C066FD000FC0C87 /* Reminder.m */,
+				90793B4E1C0954AF003F3EBD /* UIColorClassExtension.h */,
+				90793B4F1C0954AF003F3EBD /* UIColorClassExtension.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 			files = (
 				90102A001C04025100245956 /* Queue.m in Sources */,
 				905E41211C03CC1A0029365C /* Stack.m in Sources */,
+				90793B501C0954AF003F3EBD /* UIColorClassExtension.m in Sources */,
 				905C023A1C05155B0038981A /* LocationDetailViewController.m in Sources */,
 				905C023D1C051A730038981A /* Anagram.m in Sources */,
 				90F7FCE01C06BC7400E31AEC /* LoginViewController.m in Sources */,

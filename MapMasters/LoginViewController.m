@@ -39,19 +39,17 @@
 }
 
 - (void)setUpView {
-    UIColor *salmonColor = [UIColor colorWithRed:1.000 green:0.733 blue:0.553 alpha:1.000];
-    UIColor *darkBrownColor = [UIColor colorWithRed:0.435 green:0.275 blue:0.200 alpha:1.000];
-    self.loginButton.backgroundColor = salmonColor;
-    self.loginButton.layer.borderColor = [darkBrownColor CGColor];
+    self.loginButton.backgroundColor = [UIColor salmonColor];
+    self.loginButton.layer.borderColor = [[UIColor darkBrownColor] CGColor];
     self.loginButton.layer.borderWidth = 1.0;
     self.loginButton.layer.cornerRadius = 5.0;
-    self.signupButton.backgroundColor = salmonColor;
+    self.signupButton.backgroundColor = [UIColor salmonColor];
     self.signupButton.layer.borderWidth = 1.0;
-    self.signupButton.layer.borderColor = [darkBrownColor CGColor];
+    self.signupButton.layer.borderColor = [[UIColor darkBrownColor] CGColor];
     self.signupButton.layer.cornerRadius = 5.0;
-    self.cancelButton.backgroundColor = salmonColor;
+    self.cancelButton.backgroundColor = [UIColor salmonColor];
     self.cancelButton.layer.borderWidth = 1.0;
-    self.cancelButton.layer.borderColor = [darkBrownColor CGColor];
+    self.cancelButton.layer.borderColor = [[UIColor darkBrownColor] CGColor];
     self.cancelButton.layer.cornerRadius = 5.0;
     self.emailTextField.alpha = 0.0;
     self.cancelButton.alpha = 0.0;

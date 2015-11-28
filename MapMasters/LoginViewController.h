@@ -8,6 +8,7 @@
 
 @import UIKit;
 @import Parse;
+#import "UIColorClassExtension.h"
 
 typedef void(^LoginViewControllerCompletion)(void);
 

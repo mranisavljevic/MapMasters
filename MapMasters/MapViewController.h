@@ -6,7 +6,15 @@
 //  Copyright © 2015 creeperspeak. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+@import MapKit;
+@import CoreLocation;
+@import Parse;
+@import ParseUI;
+#import "LocationService.h"
+#import "LocationDetailViewController.h"
+#import "LoginViewController.h"
+#import "UIColorClassExtension.h"
 
 @interface MapViewController : UIViewController
 

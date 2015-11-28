@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Reminder.h"
 #import "LocationService.h"
+#import "UIColorClassExtension.h"
 @import CoreLocation;
 @import MapKit;
 @import Parse;

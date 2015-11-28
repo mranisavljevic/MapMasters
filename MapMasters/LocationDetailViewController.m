@@ -40,13 +40,11 @@
 - (void)setUpView {
     self.titleTextField.delegate = self;
     self.radiusTextField.delegate = self;
-    UIColor *salmonColor = [UIColor colorWithRed:1.000 green:0.733 blue:0.553 alpha:1.000];
-    UIColor *darkBrownColor = [UIColor colorWithRed:0.435 green:0.275 blue:0.200 alpha:1.000];
     
     self.addMode = YES;
     
-    self.saveReminderButton.backgroundColor = salmonColor;
-    self.saveReminderButton.layer.borderColor = [darkBrownColor CGColor];
+    self.saveReminderButton.backgroundColor = [UIColor salmonColor];
+    self.saveReminderButton.layer.borderColor = [[UIColor darkBrownColor] CGColor];
     self.saveReminderButton.layer.borderWidth = 1.0;
     self.saveReminderButton.layer.cornerRadius = 5.0;
     [self.titleTextField becomeFirstResponder];
@@ -61,14 +59,14 @@
         }
     }
     
-    self.removeReminderButton.backgroundColor = salmonColor;
-    self.removeReminderButton.layer.borderColor = [darkBrownColor CGColor];
+    self.removeReminderButton.backgroundColor = [UIColor salmonColor];
+    self.removeReminderButton.layer.borderColor = [[UIColor darkBrownColor] CGColor];
     self.removeReminderButton.layer.borderWidth = 1.0;
     self.removeReminderButton.layer.cornerRadius = 5.0;
     self.removeReminderButton.alpha = 0.0;
     
-    self.updateReminderButton.backgroundColor = salmonColor;
-    self.updateReminderButton.layer.borderColor = [darkBrownColor CGColor];
+    self.updateReminderButton.backgroundColor = [UIColor salmonColor];
+    self.updateReminderButton.layer.borderColor = [[UIColor darkBrownColor] CGColor];
     self.updateReminderButton.layer.borderWidth = 1.0;
     self.updateReminderButton.layer.cornerRadius = 5.0;
     self.updateReminderButton.alpha = 0.0;
