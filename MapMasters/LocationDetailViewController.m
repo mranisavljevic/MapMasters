@@ -11,7 +11,6 @@
 @interface LocationDetailViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
-@property (weak, nonatomic) IBOutlet UITextField *radiusTextField;
 @property (weak, nonatomic) IBOutlet UIButton *saveReminderButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *radiusLabel;
@@ -39,7 +38,6 @@
 
 - (void)setUpView {
     self.titleTextField.delegate = self;
-    self.radiusTextField.delegate = self;
     
     self.addMode = YES;
     
@@ -55,7 +53,7 @@
     if (self.addMode) {
         if (self.reminder) {
             self.titleLabel.text = [NSString stringWithFormat:@"%@: %@", self.titleLabel.text, self.reminder.name];
-            self.radiusLabel.text = [NSString stringWithFormat:@"%@: %.2f", self.radiusLabel.text, self.reminder.radius];
+            self.radiusLabel.text = [NSString stringWithFormat:@"%.2f", self.reminder.radius];
         }
     }
     
@@ -74,7 +72,6 @@
 
 - (void)toggleAddUpdateView {
     self.titleTextField.alpha = !self.addMode ? 1.0 : 0.0;
-    self.radiusTextField.alpha = !self.addMode ? 1.0 : 0.0;
     self.saveReminderButton.alpha = !self.addMode ? 1.0 : 0.0;
     self.titleLabel.alpha = self.addMode ? 1.0 : 0.0;
     self.radiusLabel.alpha = self.addMode ? 1.0 : 0.0;
@@ -94,13 +91,13 @@
             if ([object isKindOfClass:[Reminder class]]) {
                 Reminder *reminder = (Reminder*)object;
                 reminder.name = self.titleTextField.text;
-                reminder.radius = self.radiusTextField.text.floatValue;
+                reminder.radius = self.radiusLabel.text.floatValue;
                 [reminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                     if (self.completion) {
                         if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
-                            CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.coordinate radius:self.radiusTextField.text.floatValue identifier:self.titleTextField.text];
+                            CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.coordinate radius:self.radiusLabel.text.floatValue identifier:self.titleTextField.text];
                             [[[LocationService sharedService] locationManager] startMonitoringForRegion:region];
-                            self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:self.radiusTextField.text.doubleValue]);
+                            self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:self.radiusLabel.text.doubleValue]);
                             [self.navigationController popToRootViewControllerAnimated:YES];
                         }
                     }
@@ -110,16 +107,16 @@
     } else {
         Reminder *reminder = [[Reminder alloc] init];
         reminder.name = self.titleTextField.text;
-        reminder.radius = self.radiusTextField.text.floatValue;
+        reminder.radius = self.radiusLabel.text.floatValue;
         reminder.location = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
         reminder.userId = [[PFUser currentUser] objectId];
         reminder.enabled = YES;
         [reminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (self.completion) {
                 if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
-                    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.coordinate radius:self.radiusTextField.text.floatValue identifier:self.titleTextField.text];
+                    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.coordinate radius:self.radiusLabel.text.floatValue identifier:self.titleTextField.text];
                     [[[LocationService sharedService] locationManager] startMonitoringForRegion:region];
-                    self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:self.radiusTextField.text.doubleValue]);
+                    self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:self.radiusLabel.text.doubleValue]);
                     [self.navigationController popToRootViewControllerAnimated:YES];
                 }
             }
@@ -157,14 +154,12 @@
 - (IBAction)updateReminderButtonPressed:(UIButton *)sender {
     self.titleTextField.text = self.reminder.name;
     self.updateButtonTopConstraint.constant = self.updateButtonTopConstraint.constant == 96 ? 8 : 96;
-    self.radiusTextField.text = [NSString stringWithFormat:@"%.2f", self.reminder.radius];
+    self.radiusLabel.text = [NSString stringWithFormat:@"%.2f", self.reminder.radius];
     [UIView animateWithDuration:0.4 animations:^{
         [self.view layoutIfNeeded];
         self.saveReminderButton.alpha = self.saveReminderButton.alpha == 1.0 ? 0.0 : 1.0;
         self.titleTextField.alpha = self.titleTextField.alpha == 1.0 ? 0.0 : 1.0;
-        self.radiusTextField.alpha = self.radiusTextField.alpha == 1.0 ? 0.0 : 1.0;
         self.titleLabel.alpha = self.titleLabel.alpha == 1.0 ? 0.0 : 1.0;
-        self.radiusLabel.alpha = self.radiusLabel.alpha == 1.0 ? 0.0 : 1.0;
     }];
     [self.updateReminderButton setTitle:([[self.updateReminderButton titleForState:UIControlStateNormal] isEqualToString: @"Update Reminder"] ? @"Cancel" : @"Update Reminder") forState:UIControlStateNormal];
     [self.updateReminderButton setTitle:([[self.updateReminderButton titleForState:UIControlStateNormal] isEqualToString: @"Update Reminder"] ? @"Cancel" : @"Update Reminder") forState:UIControlStateSelected];

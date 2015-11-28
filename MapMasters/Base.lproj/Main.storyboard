@@ -208,15 +208,8 @@
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Radius" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5N-5p-xO5">
-                                <rect key="frame" x="20" y="110" width="560" height="30"/>
-                                <animations/>
-                                <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BL-LY-Dvz">
-                                <rect key="frame" x="243" y="148" width="114" height="32"/>
+                                <rect key="frame" x="243" y="147.5" width="114" height="32"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
@@ -234,15 +227,15 @@
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGI-0S-ttd">
-                                <rect key="frame" x="20" y="112" width="560" height="22.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Radius: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGI-0S-ttd">
+                                <rect key="frame" x="20" y="112" width="61.5" height="22.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a7-yc-5u6">
-                                <rect key="frame" x="234" y="150" width="132" height="32"/>
+                                <rect key="frame" x="234" y="149.5" width="132" height="32"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
@@ -253,8 +246,15 @@
                                     <action selector="updateReminderButtonPressed:" destination="7Je-Sr-lIc" eventType="touchUpInside" id="VHF-Ok-Nq5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAy-Pm-iQu">
+                                <rect key="frame" x="80.5" y="112" width="499.5" height="22.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fom-hD-OZQ">
-                                <rect key="frame" x="233" y="188" width="134" height="32"/>
+                                <rect key="frame" x="233" y="189.5" width="134" height="32"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
@@ -269,34 +269,32 @@
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.86666666670000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="e5N-5p-xO5" firstAttribute="top" secondItem="AdJ-Uu-vQv" secondAttribute="bottom" constant="8" id="2TP-eD-X6y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AAy-Pm-iQu" secondAttribute="trailing" id="48R-Y2-4Sb"/>
                             <constraint firstAttribute="leadingMargin" secondItem="AdJ-Uu-vQv" secondAttribute="leading" id="5as-wg-O1M"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="e5N-5p-xO5" secondAttribute="leading" id="6kP-un-GYt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LGI-0S-ttd" secondAttribute="trailing" id="Ekl-l0-4O0"/>
+                            <constraint firstItem="0a7-yc-5u6" firstAttribute="top" secondItem="LGI-0S-ttd" secondAttribute="bottom" constant="15.5" id="7zP-g6-DvY"/>
+                            <constraint firstItem="AAy-Pm-iQu" firstAttribute="leading" secondItem="LGI-0S-ttd" secondAttribute="trailing" constant="-1" id="8YC-wc-LT6"/>
                             <constraint firstItem="AdJ-Uu-vQv" firstAttribute="top" secondItem="Gvm-a6-raa" secondAttribute="bottom" constant="8" id="G1b-6d-VET"/>
-                            <constraint firstItem="0a7-yc-5u6" firstAttribute="top" secondItem="e5N-5p-xO5" secondAttribute="bottom" constant="10" id="Hk9-12-iR3"/>
-                            <constraint firstItem="Fom-hD-OZQ" firstAttribute="top" secondItem="0a7-yc-5u6" secondAttribute="bottom" constant="6" id="Kbf-7m-LFc"/>
-                            <constraint firstItem="1BL-LY-Dvz" firstAttribute="top" secondItem="e5N-5p-xO5" secondAttribute="bottom" constant="8" id="RDy-i9-xey"/>
+                            <constraint firstItem="1BL-LY-Dvz" firstAttribute="centerX" secondItem="9St-3c-9YB" secondAttribute="centerX" id="LNU-W0-6uY"/>
+                            <constraint firstItem="Fom-hD-OZQ" firstAttribute="centerX" secondItem="1BL-LY-Dvz" secondAttribute="centerX" id="S34-eb-Ape"/>
                             <constraint firstItem="hSp-eK-Wvz" firstAttribute="baseline" secondItem="AdJ-Uu-vQv" secondAttribute="baseline" id="XkZ-Wn-S8k"/>
-                            <constraint firstItem="1BL-LY-Dvz" firstAttribute="centerX" secondItem="9St-3c-9YB" secondAttribute="centerX" id="aAO-by-txw"/>
                             <constraint firstAttribute="leadingMargin" secondItem="hSp-eK-Wvz" secondAttribute="leading" id="cCF-MX-oXL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hSp-eK-Wvz" secondAttribute="trailing" id="e36-BB-OKD"/>
-                            <constraint firstItem="0a7-yc-5u6" firstAttribute="centerX" secondItem="9St-3c-9YB" secondAttribute="centerX" id="fBh-8T-M2X"/>
-                            <constraint firstItem="LGI-0S-ttd" firstAttribute="baseline" secondItem="e5N-5p-xO5" secondAttribute="baseline" id="g5G-T6-5oH"/>
-                            <constraint firstItem="Fom-hD-OZQ" firstAttribute="centerX" secondItem="9St-3c-9YB" secondAttribute="centerX" id="gDX-U6-IeU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="e5N-5p-xO5" secondAttribute="trailing" id="vZx-I9-Yj1"/>
+                            <constraint firstItem="LGI-0S-ttd" firstAttribute="top" secondItem="AdJ-Uu-vQv" secondAttribute="bottom" constant="10" id="hfX-8z-BHU"/>
+                            <constraint firstItem="AAy-Pm-iQu" firstAttribute="baseline" secondItem="LGI-0S-ttd" secondAttribute="baseline" id="nnZ-Wd-IF9"/>
+                            <constraint firstItem="Fom-hD-OZQ" firstAttribute="top" secondItem="0a7-yc-5u6" secondAttribute="bottom" constant="8" id="rcR-Pd-fv8"/>
+                            <constraint firstItem="0a7-yc-5u6" firstAttribute="centerX" secondItem="9St-3c-9YB" secondAttribute="centerX" id="s4i-mE-ikl"/>
+                            <constraint firstItem="1BL-LY-Dvz" firstAttribute="top" secondItem="LGI-0S-ttd" secondAttribute="bottom" constant="13.5" id="x6w-la-TFE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AdJ-Uu-vQv" secondAttribute="trailing" id="yZW-vY-1mN"/>
                             <constraint firstAttribute="leadingMargin" secondItem="LGI-0S-ttd" secondAttribute="leading" id="yzL-43-jfz"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="radiusLabel" destination="LGI-0S-ttd" id="1KE-F7-N3N"/>
-                        <outlet property="radiusTextField" destination="e5N-5p-xO5" id="SVa-xg-3v3"/>
+                        <outlet property="radiusLabel" destination="AAy-Pm-iQu" id="tWJ-DL-RRf"/>
                         <outlet property="removeReminderButton" destination="Fom-hD-OZQ" id="CpA-KS-IMM"/>
                         <outlet property="saveReminderButton" destination="1BL-LY-Dvz" id="MUd-zN-yGq"/>
                         <outlet property="titleLabel" destination="hSp-eK-Wvz" id="B2Q-6z-Oux"/>
                         <outlet property="titleTextField" destination="AdJ-Uu-vQv" id="AoZ-r1-HL3"/>
-                        <outlet property="updateButtonTopConstraint" destination="Hk9-12-iR3" id="wT8-dB-rIZ"/>
+                        <outlet property="updateButtonTopConstraint" destination="7zP-g6-DvY" id="oSg-8u-0vz"/>
                         <outlet property="updateReminderButton" destination="0a7-yc-5u6" id="Xb1-DI-ztf"/>
                     </connections>
                 </viewController>
