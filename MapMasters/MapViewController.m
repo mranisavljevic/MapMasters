@@ -11,6 +11,8 @@
 #import "Queue.h"
 #import "Anagram.h"
 #import "SumNumbersInString.h"
+#import "LinkedListNode.h"
+#import "LinkedListMain.h"
 
 @interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate>
 
@@ -24,6 +26,7 @@
 @property Queue *queue;
 @property Anagram *anagram;
 @property SumNumbersInString *sumNums;
+@property LinkedListMain *linkedList;
 
 @end
 
@@ -35,7 +38,8 @@
 //    [self testStack];
 //    [self testQueue];
 //    [self testAnagram];
-    [self testSumNumbersInString];
+//    [self testSumNumbersInString];
+//    [self testLinkedList];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -200,6 +204,26 @@
     self.sumNums = [[SumNumbersInString alloc] init];
     NSString *stringToTest = @"sdoi897sflj39LS9DH8dkjh38298";
     NSLog(@"%@",[self.sumNums sumNumbersInString:stringToTest]);
+}
+
+- (void)testLinkedList {
+    self.linkedList = [[LinkedListMain alloc] init];
+    LinkedListNode *nodeOne = [[LinkedListNode alloc] initWithValue:@"abc"];
+    LinkedListNode *nodeTwo = [[LinkedListNode alloc] initWithValue:@"def"];
+    LinkedListNode *nodeThree = [[LinkedListNode alloc] initWithValue:@"ghi"];
+    LinkedListNode *nodeFour = [[LinkedListNode alloc] initWithValue:@"jkl"];
+    LinkedListNode *nodeFive = [[LinkedListNode alloc] initWithValue:@"mno"];
+    [self.linkedList addNode:nodeOne];
+    [self.linkedList addNode:nodeTwo];
+    [self.linkedList addNode:nodeThree];
+    [self.linkedList addNode:nodeFour];
+    [self.linkedList addNode:nodeFive];
+    NSLog(@"%@", [self.linkedList removeNode]);
+    NSLog(@"%@", [self.linkedList removeNode]);
+    NSLog(@"%@", [self.linkedList removeNode]);
+    NSLog(@"%@", [self.linkedList removeNode]);
+    NSLog(@"%@", [self.linkedList removeNode]);
+    
 }
 
 - (IBAction)longPressGestureRecognized:(UIGestureRecognizer*)sender {
