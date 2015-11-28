@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *updateReminderButton;
 @property (weak, nonatomic) IBOutlet UISlider *radiusSlider;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *updateButtonTopConstraint;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 - (IBAction)saveReminderButtonPressed:(UIButton *)sender;
 - (IBAction)removeReminderButtonPressed:(UIButton *)sender;
@@ -48,6 +49,7 @@
     self.saveReminderButton.layer.borderColor = [[UIColor darkBrownColor] CGColor];
     self.saveReminderButton.layer.borderWidth = 1.0;
     self.saveReminderButton.layer.cornerRadius = 5.0;
+    
     [self.titleTextField becomeFirstResponder];
     
     self.titleLabel.alpha = 0.0;
@@ -75,6 +77,7 @@
 
 - (void)toggleAddUpdateView {
     self.titleTextField.alpha = !self.addMode ? 1.0 : 0.0;
+    self.titleTextField.alpha == 1.0 ? [self.titleTextField becomeFirstResponder] : [self.titleTextField resignFirstResponder];
     self.saveReminderButton.alpha = !self.addMode ? 1.0 : 0.0;
     self.radiusSlider.alpha = !self.addMode ? 1.0 : 0.0;
     self.radiusPrefixLabel.alpha = !self.addMode ? 1.0 : 0.0;
@@ -159,12 +162,14 @@
     self.titleTextField.text = self.reminder.name;
     self.updateButtonTopConstraint.constant = self.updateButtonTopConstraint.constant == 96 ? 8 : 96;
     self.radiusLabel.text = [NSString stringWithFormat:@"%.f", self.radiusSlider.value];
+    self.titleTextField.alpha == 0.0 ? [self.titleTextField becomeFirstResponder] : [self.titleTextField resignFirstResponder];
     [UIView animateWithDuration:0.4 animations:^{
         [self.view layoutIfNeeded];
         self.saveReminderButton.alpha = self.saveReminderButton.alpha == 1.0 ? 0.0 : 1.0;
         self.radiusPrefixLabel.alpha = self.radiusPrefixLabel.alpha == 1.0 ? 0.0 : 1.0;
         self.radiusSlider.alpha = self.radiusSlider.alpha == 1.0 ? 0.0 : 1.0;
         self.titleTextField.alpha = self.titleTextField.alpha == 1.0 ? 0.0 : 1.0;
+        
         self.titleLabel.alpha = self.titleLabel.alpha == 1.0 ? 0.0 : 1.0;
     }];
     [self.updateReminderButton setTitle:([[self.updateReminderButton titleForState:UIControlStateNormal] isEqualToString: @"Update Reminder"] ? @"Cancel" : @"Update Reminder") forState:UIControlStateNormal];

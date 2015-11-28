@@ -54,6 +54,7 @@
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         notification.alertTitle = @"Ooh, you're here!";
         notification.alertBody = region.identifier;
+        notification.soundName = @"toottoot.mp3";
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
 }

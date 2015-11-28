@@ -273,6 +273,14 @@
                                     <action selector="radiusSliderChanged:" destination="7Je-Sr-lIc" eventType="valueChanged" id="fr5-Rl-KLK"/>
                                 </connections>
                             </slider>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LargeImage" translatesAutoresizingMaskIntoConstraints="NO" id="qtk-AX-mGp">
+                                <rect key="frame" x="180" y="270" width="240" height="240"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="44X-dQ-pIR"/>
+                                    <constraint firstAttribute="width" constant="240" id="BJG-Fi-iwL"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Set Radius:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ek-gN-l4S">
                                 <rect key="frame" x="20" y="155.5" width="85.5" height="22.5"/>
                                 <animations/>
@@ -290,6 +298,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="AdJ-Uu-vQv" secondAttribute="leading" id="5as-wg-O1M"/>
                             <constraint firstItem="AAy-Pm-iQu" firstAttribute="leading" secondItem="LGI-0S-ttd" secondAttribute="trailing" id="8YC-wc-LT6"/>
                             <constraint firstItem="AdJ-Uu-vQv" firstAttribute="top" secondItem="Gvm-a6-raa" secondAttribute="bottom" constant="20" id="G1b-6d-VET"/>
+                            <constraint firstItem="qtk-AX-mGp" firstAttribute="top" secondItem="Fom-hD-OZQ" secondAttribute="bottom" constant="8" id="Gzu-WR-03e"/>
                             <constraint firstItem="1BL-LY-Dvz" firstAttribute="centerX" secondItem="9St-3c-9YB" secondAttribute="centerX" id="LNU-W0-6uY"/>
                             <constraint firstItem="1BL-LY-Dvz" firstAttribute="top" secondItem="jme-3z-4lu" secondAttribute="bottom" constant="8" symbolic="YES" id="Rew-1N-s1f"/>
                             <constraint firstItem="Fom-hD-OZQ" firstAttribute="centerX" secondItem="1BL-LY-Dvz" secondAttribute="centerX" id="S34-eb-Ape"/>
@@ -297,6 +306,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="jme-3z-4lu" secondAttribute="trailing" id="YDc-8a-RL5"/>
                             <constraint firstItem="jme-3z-4lu" firstAttribute="top" secondItem="AAy-Pm-iQu" secondAttribute="bottom" constant="8" symbolic="YES" id="Yha-Ut-ywP"/>
                             <constraint firstAttribute="leadingMargin" secondItem="hSp-eK-Wvz" secondAttribute="leading" id="cCF-MX-oXL"/>
+                            <constraint firstItem="qtk-AX-mGp" firstAttribute="centerX" secondItem="9St-3c-9YB" secondAttribute="centerX" id="dtG-99-oxP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hSp-eK-Wvz" secondAttribute="trailing" id="e36-BB-OKD"/>
                             <constraint firstItem="LGI-0S-ttd" firstAttribute="top" secondItem="AdJ-Uu-vQv" secondAttribute="bottom" constant="8" symbolic="YES" id="hfX-8z-BHU"/>
                             <constraint firstItem="AAy-Pm-iQu" firstAttribute="baseline" secondItem="LGI-0S-ttd" secondAttribute="baseline" id="nnZ-Wd-IF9"/>
@@ -309,6 +319,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="iconImageView" destination="qtk-AX-mGp" id="pjj-Vc-n5Q"/>
                         <outlet property="radiusLabel" destination="AAy-Pm-iQu" id="tWJ-DL-RRf"/>
                         <outlet property="radiusPrefixLabel" destination="1Ek-gN-l4S" id="BLc-wx-5B0"/>
                         <outlet property="radiusSlider" destination="jme-3z-4lu" id="9ih-Hn-Phy"/>
@@ -344,4 +355,7 @@
             <point key="canvasLocation" x="428" y="308"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LargeImage" width="600" height="600"/>
+    </resources>
 </document>
