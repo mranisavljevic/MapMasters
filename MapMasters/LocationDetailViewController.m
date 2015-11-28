@@ -14,13 +14,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveReminderButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *radiusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *radiusPrefixLabel;
 @property (weak, nonatomic) IBOutlet UIButton *removeReminderButton;
 @property (weak, nonatomic) IBOutlet UIButton *updateReminderButton;
+@property (weak, nonatomic) IBOutlet UISlider *radiusSlider;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *updateButtonTopConstraint;
 
 - (IBAction)saveReminderButtonPressed:(UIButton *)sender;
 - (IBAction)removeReminderButtonPressed:(UIButton *)sender;
 - (IBAction)updateReminderButtonPressed:(UIButton *)sender;
+- (IBAction)radiusSliderChanged:(UISlider *)sender;
 
 @end
 
@@ -48,12 +51,12 @@
     [self.titleTextField becomeFirstResponder];
     
     self.titleLabel.alpha = 0.0;
-    self.radiusLabel.alpha = 0.0;
     
     if (self.addMode) {
         if (self.reminder) {
             self.titleLabel.text = [NSString stringWithFormat:@"%@: %@", self.titleLabel.text, self.reminder.name];
-            self.radiusLabel.text = [NSString stringWithFormat:@"%.2f", self.reminder.radius];
+            self.radiusLabel.text = [NSString stringWithFormat:@"%.f", self.reminder.radius];
+            self.radiusSlider.value = self.reminder.radius;
         }
     }
     
@@ -73,8 +76,9 @@
 - (void)toggleAddUpdateView {
     self.titleTextField.alpha = !self.addMode ? 1.0 : 0.0;
     self.saveReminderButton.alpha = !self.addMode ? 1.0 : 0.0;
+    self.radiusSlider.alpha = !self.addMode ? 1.0 : 0.0;
+    self.radiusPrefixLabel.alpha = !self.addMode ? 1.0 : 0.0;
     self.titleLabel.alpha = self.addMode ? 1.0 : 0.0;
-    self.radiusLabel.alpha = self.addMode ? 1.0 : 0.0;
     self.removeReminderButton.alpha = self.addMode ? 1.0 : 0.0;
     self.updateReminderButton.alpha = self.addMode ? 1.0 : 0.0;
     self.addMode = !self.addMode ? NO : YES;
@@ -154,10 +158,12 @@
 - (IBAction)updateReminderButtonPressed:(UIButton *)sender {
     self.titleTextField.text = self.reminder.name;
     self.updateButtonTopConstraint.constant = self.updateButtonTopConstraint.constant == 96 ? 8 : 96;
-    self.radiusLabel.text = [NSString stringWithFormat:@"%.2f", self.reminder.radius];
+    self.radiusLabel.text = [NSString stringWithFormat:@"%.f", self.radiusSlider.value];
     [UIView animateWithDuration:0.4 animations:^{
         [self.view layoutIfNeeded];
         self.saveReminderButton.alpha = self.saveReminderButton.alpha == 1.0 ? 0.0 : 1.0;
+        self.radiusPrefixLabel.alpha = self.radiusPrefixLabel.alpha == 1.0 ? 0.0 : 1.0;
+        self.radiusSlider.alpha = self.radiusSlider.alpha == 1.0 ? 0.0 : 1.0;
         self.titleTextField.alpha = self.titleTextField.alpha == 1.0 ? 0.0 : 1.0;
         self.titleLabel.alpha = self.titleLabel.alpha == 1.0 ? 0.0 : 1.0;
     }];
@@ -165,6 +171,10 @@
     [self.updateReminderButton setTitle:([[self.updateReminderButton titleForState:UIControlStateNormal] isEqualToString: @"Update Reminder"] ? @"Cancel" : @"Update Reminder") forState:UIControlStateSelected];
     [self.updateReminderButton setTitle:([[self.updateReminderButton titleForState:UIControlStateNormal] isEqualToString: @"Update Reminder"] ? @"Cancel" : @"Update Reminder") forState:UIControlStateFocused];
     [self.updateReminderButton setTitle:([[self.updateReminderButton titleForState:UIControlStateNormal] isEqualToString: @"Update Reminder"] ? @"Cancel" : @"Update Reminder") forState:UIControlStateHighlighted];
+}
+
+- (IBAction)radiusSliderChanged:(UISlider *)sender {
+    self.radiusLabel.text = [NSString stringWithFormat:@"%.f", sender.value];
 }
 
 #pragma mark - UITextFieldDelegate
