@@ -9,9 +9,10 @@
 #import "InterfaceController.h"
 
 
-@interface InterfaceController()
+@interface InterfaceController() <WCSessionDelegate>
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceTable *reminderTable;
+@property (strong, nonatomic) NSArray *reminderArray;
 
 @end
 
@@ -20,7 +21,19 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-    [self setUpTable];
+    if ([WCSession isSupported]) {
+        WCSession *sharedSession = [WCSession defaultSession];
+        sharedSession.delegate = self;
+        [sharedSession activateSession];
+        if (sharedSession.applicationContext) {
+            NSArray *array = sharedSession.applicationContext[@"reminders"];
+            if (array) {
+                self.reminderArray = array;
+                [self setUpTable];
+            }
+        }
+    }
+    
 }
 
 - (void)willActivate {
@@ -34,10 +47,14 @@
 }
 
 - (void)setUpTable {
-    [self.reminderTable setNumberOfRows:10 withRowType:@"ReminderTableRowController"];
-    for (int i = 0; i < [self.reminderTable numberOfRows]; i++) {
-        ReminderTableRowController *row = (ReminderTableRowController*)[self.reminderTable rowControllerAtIndex:i];
-        row.titleLabel.text = @"Just a test.";
+    [self.reminderTable setNumberOfRows:[self.reminderArray count] withRowType:@"ReminderTableRowController"];
+    for (int i = 0; i < self.reminderArray.count; i++) {
+        if (self.reminderArray[i]) {
+            if (self.reminderArray[i][@"title"] && self.reminderArray[i][@"radius"] && self.reminderArray[i][@"coordinate"]) {
+                ReminderTableRowController *row = [self.reminderTable rowControllerAtIndex:i];
+                [row.titleLabel setText:self.reminderArray[i][@"title"]];
+            }
+        }
     }
 }
 
