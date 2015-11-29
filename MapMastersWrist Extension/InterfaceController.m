@@ -26,8 +26,9 @@
         self.sharedSession = [WCSession defaultSession];
         self.sharedSession.delegate = self;
         [self.sharedSession activateSession];
+        
     }
-//    [self getRecentReminders];
+    [self getRecentReminders:self.sharedSession.receivedApplicationContext];
     
 }
 
@@ -48,7 +49,10 @@
             NSDictionary *reminderObject = (NSDictionary*)self.reminderArray[i];
             if ([reminderObject objectForKey:@"title"] && [reminderObject objectForKey:@"radius"] && [reminderObject objectForKey:@"coordinate"]) {
                 ReminderTableRowController *row = [self.reminderTable rowControllerAtIndex:i];
-                [row.titleLabel setText:self.reminderArray[i][@"title"]];
+                [row.titleLabel setText:[reminderObject objectForKey:@"title"]];
+                NSString *radiusString = (NSString*)[reminderObject objectForKey:@"radius"];
+                row.radius = [radiusString floatValue];
+                row.coordinate = [reminderObject objectForKey:@"coordinate"];
             }
         }
     }
@@ -60,6 +64,11 @@
         self.reminderArray = array;
         [self setUpTable];
     }
+}
+
+- (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
+    ReminderTableRowController *row = [self.reminderTable rowControllerAtIndex:rowIndex];
+    [self pushControllerWithName:@"MapController" context:row.coordinate];
 }
 
 - (void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *,id> *)applicationContext {

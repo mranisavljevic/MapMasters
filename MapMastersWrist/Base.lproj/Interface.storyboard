@@ -5,22 +5,20 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--InterfaceController-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller identifier="InterfaceController" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
                         <table alignment="left" id="ik6-8E-3ZM">
                             <items>
                                 <tableRow identifier="ReminderTableRowController" id="vip-UD-70y" customClass="ReminderTableRowController">
                                     <group key="rootItem" width="1" alignment="left" id="h7k-Qu-NpV">
                                         <items>
-                                            <map width="40" height="40" alignment="left" id="JzB-f3-wa3"/>
-                                            <label height="40" alignment="left" text="Label" numberOfLines="0" id="Fzp-U1-NAz"/>
+                                            <label alignment="left" text="Label" numberOfLines="0" id="Fzp-U1-NAz"/>
                                         </items>
                                     </group>
                                     <connections>
-                                        <outlet property="miniMap" destination="JzB-f3-wa3" id="mfY-Yn-smK"/>
                                         <outlet property="titleLabel" destination="Fzp-U1-NAz" id="IFV-FP-iV1"/>
                                     </connections>
                                 </tableRow>
@@ -33,6 +31,20 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--MapController-->
+        <scene sceneID="Yfo-8p-x0M">
+            <objects>
+                <controller identifier="MapController" id="ZtS-Hp-feG" customClass="MapInterfaceController">
+                    <items>
+                        <map alignment="left" id="YvY-HK-XW2"/>
+                    </items>
+                    <connections>
+                        <outlet property="map" destination="YvY-HK-XW2" id="r5X-Gw-9xX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="389" y="346"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
