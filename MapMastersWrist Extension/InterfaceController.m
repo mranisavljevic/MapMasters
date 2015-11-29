@@ -68,13 +68,12 @@
 
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
     ReminderTableRowController *row = [self.reminderTable rowControllerAtIndex:rowIndex];
-    [self pushControllerWithName:@"MapController" context:row.coordinate];
+    NSDictionary *context = @{@"coordinate":row.coordinate,@"title":[self.reminderArray[rowIndex] objectForKey:@"title"]};
+    [self pushControllerWithName:@"MapController" context:context];
 }
 
 - (void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *,id> *)applicationContext {
-    
     [self getRecentReminders:applicationContext];
-
 }
 
 @end

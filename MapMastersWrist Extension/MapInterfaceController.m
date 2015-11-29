@@ -18,9 +18,14 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     if ([context isKindOfClass:[NSDictionary class]]) {
-        NSNumber *latitude = [context objectForKey:@"latitude"];
-        NSNumber *longitude = [context objectForKey:@"longitude"];
-        self.location = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
+        if ([[context objectForKey:@"coordinate"] isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *coordinate = (NSDictionary*)[context objectForKey:@"coordinate"];
+            NSNumber *latitude = [coordinate objectForKey:@"latitude"];
+            NSNumber *longitude = [coordinate objectForKey:@"longitude"];
+            self.location = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
+            NSString *title = (NSString*)[context objectForKey:@"title"];
+            [self setTitle:title];
+        }
         self.point = MKMapPointForCoordinate(self.location);
         [self.map setVisibleMapRect:MKMapRectMake(self.point.x, self.point.y, 100, 100)];
         [self.map addAnnotation:self.location withPinColor:WKInterfaceMapPinColorPurple];
