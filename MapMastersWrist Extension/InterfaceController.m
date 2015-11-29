@@ -11,6 +11,7 @@
 
 @interface InterfaceController() <WCSessionDelegate>
 
+@property WCSession *sharedSession;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceTable *reminderTable;
 @property (strong, nonatomic) NSArray *reminderArray;
 
@@ -22,17 +23,11 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     if ([WCSession isSupported]) {
-        WCSession *sharedSession = [WCSession defaultSession];
-        sharedSession.delegate = self;
-        [sharedSession activateSession];
-        if (sharedSession.applicationContext) {
-            NSArray *array = sharedSession.applicationContext[@"reminders"];
-            if (array) {
-                self.reminderArray = array;
-                [self setUpTable];
-            }
-        }
+        self.sharedSession = [WCSession defaultSession];
+        self.sharedSession.delegate = self;
+        [self.sharedSession activateSession];
     }
+//    [self getRecentReminders];
     
 }
 
@@ -50,12 +45,27 @@
     [self.reminderTable setNumberOfRows:[self.reminderArray count] withRowType:@"ReminderTableRowController"];
     for (int i = 0; i < self.reminderArray.count; i++) {
         if (self.reminderArray[i]) {
-            if (self.reminderArray[i][@"title"] && self.reminderArray[i][@"radius"] && self.reminderArray[i][@"coordinate"]) {
+            NSDictionary *reminderObject = (NSDictionary*)self.reminderArray[i];
+            if ([reminderObject objectForKey:@"title"] && [reminderObject objectForKey:@"radius"] && [reminderObject objectForKey:@"coordinate"]) {
                 ReminderTableRowController *row = [self.reminderTable rowControllerAtIndex:i];
                 [row.titleLabel setText:self.reminderArray[i][@"title"]];
             }
         }
     }
+}
+
+- (void)getRecentReminders:(NSDictionary*)context {
+    NSArray *array = (NSArray*)[context objectForKey:@"reminders"];
+    if (array) {
+        self.reminderArray = array;
+        [self setUpTable];
+    }
+}
+
+- (void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *,id> *)applicationContext {
+    
+    [self getRecentReminders:applicationContext];
+
 }
 
 @end

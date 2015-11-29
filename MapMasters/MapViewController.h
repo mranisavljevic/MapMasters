@@ -11,6 +11,7 @@
 @import CoreLocation;
 @import Parse;
 @import ParseUI;
+@import WatchConnectivity;
 #import "LocationService.h"
 #import "LocationDetailViewController.h"
 #import "LoginViewController.h"
