@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		90102A001C04025100245956 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 901029FF1C04025100245956 /* Queue.m */; };
-		901AD18F1C0B5A9C00610860 /* toottoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 901AD18E1C0B5A9C00610860 /* toottoot.mp3 */; };
 		905C02371C0501780038981A /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C02361C0501780038981A /* LocationService.m */; };
 		905C023A1C05155B0038981A /* LocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C02391C05155B0038981A /* LocationDetailViewController.m */; };
 		905C023D1C051A730038981A /* Anagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C023C1C051A730038981A /* Anagram.m */; };
@@ -50,6 +49,7 @@
 		90793BE91C09958F003F3EBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90793BE81C09958F003F3EBD /* Assets.xcassets */; };
 		90793BED1C09958F003F3EBD /* MapMastersWrist.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 90793BCC1C09958E003F3EBD /* MapMastersWrist.app */; };
 		90B4FE4D1C0A52FA00087624 /* ReminderTableRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B4FE4C1C0A52FA00087624 /* ReminderTableRowController.m */; };
+		90CF02591C13EB170007BF3F /* toottoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 90CF02581C13EB170007BF3F /* toottoot.mp3 */; };
 		90F7FCE01C06BC7400E31AEC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F7FCDF1C06BC7400E31AEC /* LoginViewController.m */; };
 		90FC62E21C0657D200FC0C87 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62DE1C0657D200FC0C87 /* ParseFacebookUtils.framework */; };
 		90FC62E31C0657D200FC0C87 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62DF1C0657D200FC0C87 /* ParseFacebookUtilsV4.framework */; };
@@ -117,7 +117,6 @@
 /* Begin PBXFileReference section */
 		901029FE1C04025100245956 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		901029FF1C04025100245956 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
-		901AD18E1C0B5A9C00610860 /* toottoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = toottoot.mp3; path = ../../../Downloads/toottoot.mp3; sourceTree = "<group>"; };
 		905C02351C0501780038981A /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
 		905C02361C0501780038981A /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 		905C02381C05155B0038981A /* LocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailViewController.h; sourceTree = "<group>"; };
@@ -183,6 +182,7 @@
 		90793BEA1C09958F003F3EBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90B4FE4B1C0A52FA00087624 /* ReminderTableRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderTableRowController.h; sourceTree = "<group>"; };
 		90B4FE4C1C0A52FA00087624 /* ReminderTableRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTableRowController.m; sourceTree = "<group>"; };
+		90CF02581C13EB170007BF3F /* toottoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = toottoot.mp3; sourceTree = "<group>"; };
 		90F7FCDE1C06BC7400E31AEC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		90F7FCDF1C06BC7400E31AEC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		90FC62DE1C0657D200FC0C87 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -299,7 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				905E40D51C03AC8C0029365C /* Info.plist */,
-				901AD18E1C0B5A9C00610860 /* toottoot.mp3 */,
+				90CF02581C13EB170007BF3F /* toottoot.mp3 */,
 				905E40C51C03AC8C0029365C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -640,8 +640,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				905E40D41C03AC8C0029365C /* LaunchScreen.storyboard in Resources */,
-				901AD18F1C0B5A9C00610860 /* toottoot.mp3 in Resources */,
 				905E40D11C03AC8C0029365C /* Assets.xcassets in Resources */,
+				90CF02591C13EB170007BF3F /* toottoot.mp3 in Resources */,
 				905E40CF1C03AC8C0029365C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
