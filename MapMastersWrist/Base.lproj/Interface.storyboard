@@ -12,12 +12,24 @@
                     <items>
                         <table alignment="left" id="ik6-8E-3ZM">
                             <items>
-                                <tableRow id="vip-UD-70y">
-                                    <group key="rootItem" width="1" alignment="left" id="h7k-Qu-NpV"/>
+                                <tableRow identifier="ReminderTableRowController" id="vip-UD-70y" customClass="ReminderTableRowController">
+                                    <group key="rootItem" width="1" alignment="left" id="h7k-Qu-NpV">
+                                        <items>
+                                            <map width="40" height="40" alignment="left" id="JzB-f3-wa3"/>
+                                            <label height="40" alignment="left" text="Label" numberOfLines="0" id="Fzp-U1-NAz"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="miniMap" destination="JzB-f3-wa3" id="mfY-Yn-smK"/>
+                                        <outlet property="titleLabel" destination="Fzp-U1-NAz" id="IFV-FP-iV1"/>
+                                    </connections>
                                 </tableRow>
                             </items>
                         </table>
                     </items>
+                    <connections>
+                        <outlet property="reminderTable" destination="ik6-8E-3ZM" id="o3w-Lp-XOz"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>

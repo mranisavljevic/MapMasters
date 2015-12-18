@@ -11,6 +11,8 @@
 
 @interface InterfaceController()
 
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceTable *reminderTable;
+
 @end
 
 
@@ -18,8 +20,7 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-
-    // Configure interface objects here.
+    [self setUpTable];
 }
 
 - (void)willActivate {
@@ -30,6 +31,14 @@
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
+}
+
+- (void)setUpTable {
+    [self.reminderTable setNumberOfRows:10 withRowType:@"ReminderTableRowController"];
+    for (int i = 0; i < [self.reminderTable numberOfRows]; i++) {
+        ReminderTableRowController *row = (ReminderTableRowController*)[self.reminderTable rowControllerAtIndex:i];
+        row.titleLabel.text = @"Just a test.";
+    }
 }
 
 @end

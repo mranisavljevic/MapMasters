@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		90102A001C04025100245956 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 901029FF1C04025100245956 /* Queue.m */; };
+		901AD18F1C0B5A9C00610860 /* toottoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 901AD18E1C0B5A9C00610860 /* toottoot.mp3 */; };
 		905C02371C0501780038981A /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C02361C0501780038981A /* LocationService.m */; };
 		905C023A1C05155B0038981A /* LocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C02391C05155B0038981A /* LocationDetailViewController.m */; };
 		905C023D1C051A730038981A /* Anagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C023C1C051A730038981A /* Anagram.m */; };
@@ -39,7 +40,6 @@
 		90793B531C09594B003F3EBD /* SumNumbersInString.m in Sources */ = {isa = PBXBuildFile; fileRef = 90793B521C09594B003F3EBD /* SumNumbersInString.m */; };
 		90793B561C095D73003F3EBD /* LinkedListMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 90793B551C095D73003F3EBD /* LinkedListMain.m */; };
 		90793B591C096106003F3EBD /* LinkedListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 90793B581C096106003F3EBD /* LinkedListNode.m */; };
-		90793B5B1C0985B2003F3EBD /* toottoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 90793B5A1C0985B1003F3EBD /* toottoot.mp3 */; };
 		90793BD01C09958E003F3EBD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90793BCE1C09958E003F3EBD /* Interface.storyboard */; };
 		90793BD21C09958E003F3EBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90793BD11C09958E003F3EBD /* Assets.xcassets */; };
 		90793BD91C09958F003F3EBD /* MapMastersWrist Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 90793BD81C09958F003F3EBD /* MapMastersWrist Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -48,6 +48,7 @@
 		90793BE71C09958F003F3EBD /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90793BE61C09958F003F3EBD /* NotificationController.m */; };
 		90793BE91C09958F003F3EBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90793BE81C09958F003F3EBD /* Assets.xcassets */; };
 		90793BED1C09958F003F3EBD /* MapMastersWrist.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 90793BCC1C09958E003F3EBD /* MapMastersWrist.app */; };
+		90B4FE4D1C0A52FA00087624 /* ReminderTableRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B4FE4C1C0A52FA00087624 /* ReminderTableRowController.m */; };
 		90F7FCE01C06BC7400E31AEC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F7FCDF1C06BC7400E31AEC /* LoginViewController.m */; };
 		90FC62E21C0657D200FC0C87 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62DE1C0657D200FC0C87 /* ParseFacebookUtils.framework */; };
 		90FC62E31C0657D200FC0C87 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90FC62DF1C0657D200FC0C87 /* ParseFacebookUtilsV4.framework */; };
@@ -115,6 +116,7 @@
 /* Begin PBXFileReference section */
 		901029FE1C04025100245956 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		901029FF1C04025100245956 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
+		901AD18E1C0B5A9C00610860 /* toottoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = toottoot.mp3; path = ../../../Downloads/toottoot.mp3; sourceTree = "<group>"; };
 		905C02351C0501780038981A /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
 		905C02361C0501780038981A /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 		905C02381C05155B0038981A /* LocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailViewController.h; sourceTree = "<group>"; };
@@ -162,7 +164,6 @@
 		90793B551C095D73003F3EBD /* LinkedListMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedListMain.m; sourceTree = "<group>"; };
 		90793B571C096106003F3EBD /* LinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedListNode.h; sourceTree = "<group>"; };
 		90793B581C096106003F3EBD /* LinkedListNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedListNode.m; sourceTree = "<group>"; };
-		90793B5A1C0985B1003F3EBD /* toottoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = toottoot.mp3; sourceTree = "<group>"; };
 		90793BCC1C09958E003F3EBD /* MapMastersWrist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapMastersWrist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90793BCF1C09958E003F3EBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		90793BD11C09958E003F3EBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,6 +178,8 @@
 		90793BE61C09958F003F3EBD /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
 		90793BE81C09958F003F3EBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90793BEA1C09958F003F3EBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90B4FE4B1C0A52FA00087624 /* ReminderTableRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderTableRowController.h; sourceTree = "<group>"; };
+		90B4FE4C1C0A52FA00087624 /* ReminderTableRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTableRowController.m; sourceTree = "<group>"; };
 		90F7FCDE1C06BC7400E31AEC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		90F7FCDF1C06BC7400E31AEC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		90FC62DE1C0657D200FC0C87 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -293,7 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				905E40D51C03AC8C0029365C /* Info.plist */,
-				90793B5A1C0985B1003F3EBD /* toottoot.mp3 */,
+				901AD18E1C0B5A9C00610860 /* toottoot.mp3 */,
 				905E40C51C03AC8C0029365C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -408,14 +411,9 @@
 		90793BDC1C09958F003F3EBD /* MapMastersWrist Extension */ = {
 			isa = PBXGroup;
 			children = (
-				90793BDF1C09958F003F3EBD /* InterfaceController.h */,
-				90793BE01C09958F003F3EBD /* InterfaceController.m */,
-				90793BE21C09958F003F3EBD /* ExtensionDelegate.h */,
-				90793BE31C09958F003F3EBD /* ExtensionDelegate.m */,
-				90793BE51C09958F003F3EBD /* NotificationController.h */,
-				90793BE61C09958F003F3EBD /* NotificationController.m */,
-				90793BE81C09958F003F3EBD /* Assets.xcassets */,
-				90793BEA1C09958F003F3EBD /* Info.plist */,
+				90B4FE4E1C0A530100087624 /* Controller */,
+				90B4FE4F1C0A530E00087624 /* App */,
+				90B4FE501C0A531800087624 /* View */,
 				90793BDD1C09958F003F3EBD /* Supporting Files */,
 			);
 			path = "MapMastersWrist Extension";
@@ -451,6 +449,37 @@
 				90793BD31C09958E003F3EBD /* Info.plist */,
 			);
 			name = App;
+			sourceTree = "<group>";
+		};
+		90B4FE4E1C0A530100087624 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				90793BDF1C09958F003F3EBD /* InterfaceController.h */,
+				90793BE01C09958F003F3EBD /* InterfaceController.m */,
+				90B4FE4B1C0A52FA00087624 /* ReminderTableRowController.h */,
+				90B4FE4C1C0A52FA00087624 /* ReminderTableRowController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		90B4FE4F1C0A530E00087624 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				90793BE21C09958F003F3EBD /* ExtensionDelegate.h */,
+				90793BE31C09958F003F3EBD /* ExtensionDelegate.m */,
+				90793BE51C09958F003F3EBD /* NotificationController.h */,
+				90793BE61C09958F003F3EBD /* NotificationController.m */,
+				90793BEA1C09958F003F3EBD /* Info.plist */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		90B4FE501C0A531800087624 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90793BE81C09958F003F3EBD /* Assets.xcassets */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -606,8 +635,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				905E40D41C03AC8C0029365C /* LaunchScreen.storyboard in Resources */,
+				901AD18F1C0B5A9C00610860 /* toottoot.mp3 in Resources */,
 				905E40D11C03AC8C0029365C /* Assets.xcassets in Resources */,
-				90793B5B1C0985B2003F3EBD /* toottoot.mp3 in Resources */,
 				905E40CF1C03AC8C0029365C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,6 +717,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90793BE41C09958F003F3EBD /* ExtensionDelegate.m in Sources */,
+				90B4FE4D1C0A52FA00087624 /* ReminderTableRowController.m in Sources */,
 				90793BE11C09958F003F3EBD /* InterfaceController.m in Sources */,
 				90793BE71C09958F003F3EBD /* NotificationController.m in Sources */,
 			);
@@ -909,6 +939,10 @@
 		90793BEF1C09958F003F3EBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "MapMastersWrist Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.MapMasters.watchkitapp.watchkitextension;
@@ -923,6 +957,10 @@
 		90793BF01C09958F003F3EBD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "MapMastersWrist Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.MapMasters.watchkitapp.watchkitextension;
@@ -1010,6 +1048,7 @@
 				90793BF01C09958F003F3EBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90793BF21C09958F003F3EBD /* Build configuration list for PBXNativeTarget "MapMastersWrist" */ = {
 			isa = XCConfigurationList;
@@ -1018,6 +1057,7 @@
 				90793BF41C09958F003F3EBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
