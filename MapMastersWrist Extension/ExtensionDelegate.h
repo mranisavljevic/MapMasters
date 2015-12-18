@@ -6,7 +6,8 @@
 //  Copyright © 2015 creeperspeak. All rights reserved.
 //
 
-#import <WatchKit/WatchKit.h>
+@import WatchKit;
+@import WatchConnectivity;
 
 @interface ExtensionDelegate : NSObject <WKExtensionDelegate>
 

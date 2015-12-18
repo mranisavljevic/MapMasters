@@ -5,34 +5,51 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Reminders-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                <controller identifier="InterfaceController" title="Reminders" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
                         <table alignment="left" id="ik6-8E-3ZM">
                             <items>
                                 <tableRow identifier="ReminderTableRowController" id="vip-UD-70y" customClass="ReminderTableRowController">
-                                    <group key="rootItem" width="1" alignment="left" id="h7k-Qu-NpV">
+                                    <group key="rootItem" width="1" alignment="left" radius="5" id="h7k-Qu-NpV">
                                         <items>
-                                            <map width="40" height="40" alignment="left" id="JzB-f3-wa3"/>
-                                            <label height="40" alignment="left" text="Label" numberOfLines="0" id="Fzp-U1-NAz"/>
+                                            <label alignment="left" verticalAlignment="center" text="Label" numberOfLines="0" id="Fzp-U1-NAz">
+                                                <color key="textColor" red="0.4549019608" green="0.3921568627" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </label>
                                         </items>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.72156862749999995" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="margins" left="2" right="2" top="1" bottom="1"/>
                                     </group>
                                     <connections>
-                                        <outlet property="miniMap" destination="JzB-f3-wa3" id="mfY-Yn-smK"/>
                                         <outlet property="titleLabel" destination="Fzp-U1-NAz" id="IFV-FP-iV1"/>
                                     </connections>
                                 </tableRow>
                             </items>
                         </table>
                     </items>
+                    <color key="backgroundColor" red="1" green="0.8980392157" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="reminderTable" destination="ik6-8E-3ZM" id="o3w-Lp-XOz"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--MapController-->
+        <scene sceneID="Yfo-8p-x0M">
+            <objects>
+                <controller identifier="MapController" id="ZtS-Hp-feG" customClass="MapInterfaceController">
+                    <items>
+                        <map alignment="left" id="YvY-HK-XW2"/>
+                    </items>
+                    <connections>
+                        <outlet property="map" destination="YvY-HK-XW2" id="r5X-Gw-9xX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="389" y="346"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

@@ -12,6 +12,7 @@
 @interface ReminderTableRowController : NSObject
 
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *titleLabel;
-@property (weak, nonatomic) IBOutlet WKInterfaceMap *miniMap;
+@property float radius;
+@property NSDictionary *coordinate;
 
 @end

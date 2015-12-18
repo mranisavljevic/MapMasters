@@ -6,9 +6,10 @@
 //  Copyright © 2015 creeperspeak. All rights reserved.
 //
 
-#import <WatchKit/WatchKit.h>
-#import <Foundation/Foundation.h>
 #import "ReminderTableRowController.h"
+@import WatchKit;
+@import WatchConnectivity;
+@import Foundation;
 
 @interface InterfaceController : WKInterfaceController
 

@@ -14,7 +14,7 @@
 #import "LinkedListNode.h"
 #import "LinkedListMain.h"
 
-@interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate>
+@interface MapViewController () <LocationServiceDelegate, MKMapViewDelegate, WCSessionDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
 @property (strong, nonatomic) NSArray *reminders;
@@ -22,6 +22,7 @@
 - (IBAction)tapGestureRecognized:(id)sender;
 @property (strong, nonatomic) NSArray *monitoredRegions;
 @property (strong, nonatomic) NSArray *monitoredOverlays;
+@property WCSession *sharedSession;
 @property Stack *stack;
 @property Queue *queue;
 @property Anagram *anagram;
@@ -34,6 +35,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([WCSession isSupported]) {
+        self.sharedSession = [WCSession defaultSession];
+        self.sharedSession.delegate = self;
+        [self.sharedSession activateSession];
+    }
     [self setUpView];
 //    [self testStack];
 //    [self testQueue];
@@ -101,6 +107,7 @@
                     }];
                 }
             }
+            [self sendRemindersToWatchExtension:self.reminders];
         }
     }];
 }
@@ -295,6 +302,23 @@
 - (void)locationServiceDidUpdateLocation:(CLLocation *)location {
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
     [self setRegion:region];
+}
+
+#pragma mark = WCSessionDelegate
+
+- (void)sendRemindersToWatchExtension:(NSArray *)reminders {
+    NSDictionary *reminderDictionary = @{};
+    NSMutableArray *reminderArray = [[NSMutableArray alloc] init];
+    for (Reminder *reminder in reminders) {
+        NSString *title = reminder.name;
+        NSString *radius = [NSString stringWithFormat:@"%f",reminder.radius];
+        NSDictionary *coordinate = @{@"latitude":[NSString stringWithFormat:@"%f",reminder.location.latitude],@"longitude":[NSString stringWithFormat:@"%f",reminder.location.longitude]};
+        NSDictionary *tempReminderDictionary = @{@"title":title,@"radius":radius,@"coordinate":coordinate};
+//        reminderArray = [NSArray arrayWithObject:tempReminderDictionary];
+        [reminderArray addObject:tempReminderDictionary];
+    }
+    reminderDictionary = [NSDictionary dictionaryWithObject:reminderArray forKey:@"reminders"];
+    [self.sharedSession updateApplicationContext:reminderDictionary error:nil];
 }
 
 @end
