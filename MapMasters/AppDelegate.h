@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapViewController.h"
+#import "LoginViewController.h"
+#import "Reminder.h"
+@import Parse;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-
 @end
-

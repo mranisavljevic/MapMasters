@@ -6,7 +6,8 @@
 //  Copyright © 2015 creeperspeak. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import UIKit;
+@import MapKit;
 @import CoreLocation;
 
 @protocol LocationServiceDelegate <NSObject>
@@ -21,6 +22,7 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *location;
 @property (weak, nonatomic) id delegate;
+@property (weak, nonatomic) MKMapView *mapView;
 
 + (LocationService *)sharedService;
 

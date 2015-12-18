@@ -11,9 +11,6 @@
 
 @interface LocationService () <CLLocationManagerDelegate>
 
-- (void)startUpdatingLocation;
-- (void)stopUpdatingLocation;
-
 @end
 
 @implementation LocationService
@@ -34,17 +31,9 @@
         _locationManager.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         _locationManager.distanceFilter = 100;
-        [_locationManager requestWhenInUseAuthorization];
+        [_locationManager requestAlwaysAuthorization];
     }
     return self;
-}
-
-- (void)startUpdatingLocation {
-    [self startUpdatingLocation];
-}
-
-- (void)stopUpdatingLocation {
-    [self stopUpdatingLocation];
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -52,6 +41,22 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     [self.delegate locationServiceDidUpdateLocation:locations.lastObject];
     [self setLocation:locations.lastObject];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusAuthorizedAlways) {
+        [self.mapView setShowsUserLocation:YES];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    if (region) {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertTitle = @"Ooh, you're here!";
+        notification.alertBody = region.identifier;
+        notification.soundName = @"toottoot.mp3";
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
 }
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -20,29 +19,57 @@
     [Parse setApplicationId:@"09b0698YNB51nOBuLTxOG1xRDtjVs2PmXZMGJqOM"
                   clientKey:@"F1vcVsUwJbw1qhdIZQvxOGnWtM0UVFSfzeUyk2LN"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [self setUpLocalNotifications];
+    if (![PFUser currentUser]) {
+        [self presentLoginSignupViewController];
+    }
+    if (launchOptions[@"UIApplicationLaunchOptionsLocalNotificationKey"]) {
+        UILocalNotification *notification = (UILocalNotification*)launchOptions[@"UIApplicationLaunchOptionsLocalNotificationKey"];
+        PFQuery *query = [[PFQuery alloc] initWithClassName:@"Reminder"];
+        [query whereKey:@"title" equalTo:notification.alertBody];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"%@", error.userInfo);
+            }
+            if ([object isKindOfClass:[Reminder class] ]) {
+                UINavigationController *navController = (UINavigationController*)self.window.rootViewController;
+                UIStoryboard *storyboard = navController.storyboard;
+                MapViewController *homeVC = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+                LocationDetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"LocationDetailViewController"];
+                [navController pushViewController:homeVC animated:YES];
+                detailVC.reminder = (Reminder*)object;
+                [navController pushViewController:detailVC animated:YES];
+            }
+        }];
+    }
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (void)presentLoginSignupViewController {
+    UINavigationController *navController = (UINavigationController *)[[self window] rootViewController];
+    UIStoryboard *storyboard = [navController storyboard];
+    LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [navController pushViewController:loginVC animated:YES];
+    loginVC.completion = ^ {
+        [navController popToRootViewControllerAnimated:YES];
+    };
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"You're here!" message:notification.alertBody preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okAction];
+    MapViewController *mapViewController = [[MapViewController alloc] init];
+    [mapViewController presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+- (void)setUpLocalNotifications {
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void (^)())completionHandler {
+    NSLog(@"Something is getting sent along...");
 }
 
 @end
